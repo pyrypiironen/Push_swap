@@ -1,33 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   struct_settings.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/15 17:40:39 by ppiirone          #+#    #+#             */
-/*   Updated: 2022/06/15 17:40:40 by ppiirone         ###   ########.fr       */
+/*   Created: 2022/06/16 17:11:03 by ppiirone          #+#    #+#             */
+/*   Updated: 2022/06/16 17:11:04 by ppiirone         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+# include "../../includes/push_swap.h"
 
-# include "../libft/libft.h"
-
-typedef struct s_flags
-{
-	int			v;
-	int			c;
-}				t_flags;
-
-typedef struct s_stack
-{
-	int					nb;
-	struct s_stack		*next;
-}						t_stack;
-
-void	error(void);
-int		ps_atoi(const char *str);
-
-#endif

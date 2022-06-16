@@ -12,14 +12,6 @@
 
 # include "../../includes/push_swap.h"
 
-void	read_input(int argc, char **argv)//no no
-{
-	if (argc == 1)
-		error();
-
-	
-}
-
 
 void	error();
 {
@@ -28,8 +20,11 @@ void	error();
 	exit(-1);
 }
 
-void	check_flags(char **argv)
+void	check_flags(char **argv, t_flags *flag)
 {
+	flag = (t_flags *)malloc(sizeof(t_flags));
+	flag->c = 0;
+	flag->v = 0;
 	if (ft_strcmp(argv[1], "-v") == 0)
 		flag->v= 1;
 	else if (ft_strcmp(argv[1]. "-c") == 0)
