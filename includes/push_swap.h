@@ -15,19 +15,27 @@
 
 # include "../libft/libft.h"
 
-typedef struct s_flags
+typedef struct s_data
 {
-	int			v;
-	int			c;
-}				t_flags;
+	// Stacks
+	int			*a;
+	int			*b;
+	int			*top_a;
+	int			*top_b;
+	// Flags
+	int			visual;
+	int			colors;
+}				t_data;
 
-typedef struct s_stack
-{
-	int					nb;
-	struct s_stack		*next;
-}						t_stack;
+void	ps_error(t_data *d);
+// Read input
+void	check_flags(char **argv, t_data *d);
+void	read_input(char **argv, t_data *d);
+void	read_argu(char *argv, t_data *d);
+void	add_to_stack(char *str, t_data *d);
 
-void	error(void);
-int		ps_atoi(const char *str);
+
+// Libft functions modified to this project
+int		ps_atoi(const char *str, t_data *d);
 
 #endif

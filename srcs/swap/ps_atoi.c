@@ -12,7 +12,7 @@
 
 # include "../../includes/push_swap.h"
 
-int	ft_atoi(const char *str)
+int	ps_atoi(const char *str, t_data *d)
 {
 	unsigned long int	res;
 	int					sign;
@@ -25,13 +25,16 @@ int	ft_atoi(const char *str)
 			sign = -1;
 		str++;
 	}
+	// This is protect against false input.
+	if (*str <= '0' | *str >= '9')
+		ps_error(d);
 	while (*str && *str >= '0' && *str <= '9')
 	{
 		res = res * 10 + (unsigned long int)*str - '0';
 		if (res > 2147483648 && sign < 0)
-			error();
+			ps_error(d);
 		if (res > 2147483647 && sign > 0)
-			error();
+			ps_error(d);
 		str++;
 	}
 	return (sign * (int)res);
