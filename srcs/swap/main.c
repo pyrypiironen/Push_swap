@@ -21,7 +21,8 @@ int		main(int argc, char **argv)
 		ps_error(data);
 	if (argc == 1)
 	{
-		ft_printf("usage: ./push_swap <The stack a formatted as a list of intregers>\n");
+		ft_printf("usage: ./push_swap <The stack a formatted as a list of \
+		integers>\n");
 		return (0);
 	}
 	check_flags(argv, data);
@@ -32,6 +33,6 @@ void	ps_error(t_data	*d)
 {
 	ft_printf("Error\n");
 	//free memory
-	d->visual = 100;// (this line is for silence the ps_error message)
+	d->visual = 100;// (this line is for silence the error message)
 	exit(-1);
 }
