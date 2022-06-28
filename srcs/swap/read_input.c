@@ -45,14 +45,14 @@ void	read_input(char **argv, t_data *d)
 void	read_argu(char *arg, t_data *d)
 {
 	int		i;
-	char	*str = "-2147483648 ";
+	char	str[12];
 
 	i = 0;
 	if (arg[0] == '-')
 		str[i++] = '-';
 	// While there is a digit (0 to 9) and value of str can suit as an int,
 	// the digit is added to str. It is still possible that str get value over
-	// int. Ps_atoi protect against false inputs. 
+	// int. Ps_atoi protect against false inputs.
 	while (arg[i] && ft_isdigit(arg[i]) == 1 && i < 11 )
 	{
 		str[i] = arg[i];
@@ -60,7 +60,7 @@ void	read_argu(char *arg, t_data *d)
 	}
 	str[i] = '\0';
 	add_to_stack(str, d);
-	// If there is null, the original string was valid and we can return.
+	// If there is null, the original string was valid and function can return.
 	if (arg[i] == '\0')
 		return ;
 	// Else if there is space and the next character is digit
@@ -72,8 +72,8 @@ void	read_argu(char *arg, t_data *d)
 	read_argu((arg + i), d);// OR (&arg[i])
 }
 
-// void	add_to_stack(char *str, t_data *d)
-// {
-// 	d->a = ps_atoi(str, d); //not allocated memory too stack a yet
-// 	d->a++; // do not lose the head
-// }
+void	add_to_stack(char str[12], t_data *d)
+{
+	d->a[d->pos_a] = ps_atoi(str, d);
+	d->pos_a++;
+}

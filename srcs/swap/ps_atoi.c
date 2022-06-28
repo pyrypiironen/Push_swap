@@ -26,7 +26,7 @@ int	ps_atoi(const char *str, t_data *d)
 		str++;
 	}
 	// This is protect against false input.
-	if (*str <= '0' | *str >= '9')
+	if (*str < '0' | *str > '9')
 		ps_error(d);
 	while (*str && *str >= '0' && *str <= '9')
 	{

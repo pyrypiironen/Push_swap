@@ -21,6 +21,10 @@ typedef struct s_data
 	int			*a;
 	int			*b;
 	int			*top_a;
+	int			pos_a;
+	// not format yet
+
+
 	int			*top_b;
 	// Flags
 	int			visual;
@@ -28,14 +32,18 @@ typedef struct s_data
 }				t_data;
 
 void	ps_error(t_data *d);
+void	format_struct(t_data *d);
 // Read input
 void	check_flags(char **argv, t_data *d);
 void	read_input(char **argv, t_data *d);
-void	read_argu(char *argv, t_data *d);
-void	add_to_stack(char *str, t_data *d);
+void	read_argu(char *arg, t_data *d);
+void	add_to_stack(char str[12], t_data *d);
 
 
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);
+
+// Just for testing - delete in the end
+void	print_stack(t_data *d);
 
 #endif
