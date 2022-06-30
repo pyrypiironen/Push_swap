@@ -12,7 +12,7 @@
 
 # include "../../includes/push_swap.h"
 
-void	check_flags(char **argv, t_data *d)
+void	check_flags(char **argv, t_data *d, int argc)
 {
 	d->colors = 0;
 	d->visual = 0;
@@ -20,9 +20,9 @@ void	check_flags(char **argv, t_data *d)
 		d->visual = 1;
 	else if (ft_strcmp(argv[1], "-c") == 0)
 		d->colors = 1;
-	if (ft_strcmp(argv[2], "-v") == 0)
+	if (argc > 2 && ft_strcmp(argv[2], "-v") == 0)
 			d->visual = 1;
-	else if (ft_strcmp(argv[2], "-c") == 0)
+	else if (argc > 2 && ft_strcmp(argv[2], "-c") == 0)
 			d->colors = 1;
 }
 

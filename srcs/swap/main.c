@@ -25,10 +25,8 @@ int		main(int argc, char **argv)
 integers>\n");
 		return (0);
 	}
-	//ft_printf("Pre\n");
 	format_struct(data);
-	//check_flags(argv, data);
-	//ft_printf("after check_flags\n");
+	check_flags(argv, data, argc);
 	read_input(argv, data);
 	print_stack(data); // Delete in the end
 	return (0);
@@ -56,7 +54,7 @@ void	print_stack(t_data *d) // Delete in the end
 {
 	int i = 0;
 	ft_printf("Stack a:\n");
-	while (i < 5)
+	while (i < 6)
 	{	
 		ft_printf("i is %d | value %d\n", i, d->a[i]);
 		i++;
