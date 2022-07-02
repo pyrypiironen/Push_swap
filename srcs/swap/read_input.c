@@ -26,7 +26,7 @@ void	check_flags(char **argv, t_data *d, int argc)
 			d->colors = 1;
 }
 
-void	read_input(char **argv, t_data *d)
+void	read_input(char **argv, t_data *d, t_stack *a)
 {
 	int	i;
 
@@ -37,12 +37,12 @@ void	read_input(char **argv, t_data *d)
 		i++;
 	while (argv[i])
 	{
-		read_argu(argv[i], d);
+		read_argu(argv[i], d, &a);
 		i++;
 	}
 }
 
-void	read_argu(char *arg, t_data *d)
+void	read_argu(char *arg, t_data *d, t_stack **a)
 {
 	int		i;
 	char	str[12];
@@ -59,7 +59,7 @@ void	read_argu(char *arg, t_data *d)
 		i++;
 	}
 	str[i] = '\0';
-	add_to_stack(str, d);
+	add_to_stack(str, d, a);
 	// If there is null, the original string was valid and function can return.
 	if (arg[i] == '\0')
 		return ;
@@ -69,11 +69,29 @@ void	read_argu(char *arg, t_data *d)
 		i++;
 	else
 		ps_error(d);
-	read_argu((arg + i), d);// OR (&arg[i])
+	read_argu((arg + i), d, a);// OR (&arg[i])
 }
 
-void	add_to_stack(char str[12], t_data *d)
+void	add_to_stack(char str[12], t_data *d, t_stack **a)
 {
-	d->a[d->pos_a] = ps_atoi(str, d);
-	d->pos_a++;
+	//ft_printf("{red}%10d\n", (*a)->value);
+	if ((*a)->value != '\0')
+	{
+		(*a)->next = new_node();
+		*a = (*a)->next;
+	}
+	(*a)->value = ps_atoi(str, d);
+	//ft_printf("{green}%10d\n", (*a)->value);
+}
+
+t_stack	*new_node()
+{
+	t_stack	*new;
+
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (new == NULL)
+		exit(-1); // Check this once more
+	new->value = '\0';
+	new->next = NULL;
+	return (new);
 }

@@ -15,9 +15,13 @@
 int		main(int argc, char **argv)
 {
 	t_data	*data;
+	t_stack	*a;
+	t_stack	*b;
 
 	data = (t_data *)malloc(sizeof(t_data));
-	if (data == NULL)
+	a = (t_stack *)malloc(sizeof(t_stack));
+	b = (t_stack *)malloc(sizeof(t_stack));
+	if (data == NULL | a == NULL | b == NULL)
 		ps_error(data);
 	if (argc == 1)
 	{
@@ -25,10 +29,10 @@ int		main(int argc, char **argv)
 integers>\n");
 		return (0);
 	}
-	format_struct(data);
+	format_structs(data, &a, &b);
 	check_flags(argv, data, argc);
-	read_input(argv, data);
-	print_stack(data); // Delete in the end
+	read_input(argv, data, a);
+	print_stacks(data, &a, &b); // Delete in the end
 	return (0);
 }
 
@@ -40,23 +44,41 @@ void	ps_error(t_data	*d)
 	exit(-1);
 }
 
-void	format_struct(t_data *d)
+void	format_structs(t_data *d, t_stack **a, t_stack **b)
 {
-	d->a = (int *)malloc(sizeof(int) * 501);
-	d->b = (int *)malloc(sizeof(int) * 501);
-	if (d->a == NULL | d->b == NULL)
-		ps_error(d);
-	d->a = d->top_a; // Save the head.
-	d->pos_a = 0;
+	d->head_a = *a;
+	d->head_b = *b;
+	(*a)->value = '\0';
+	(*a)->next = NULL;
+	(*b)->value = '\0';
+	(*b)->next = NULL;
 }
 
-void	print_stack(t_data *d) // Delete in the end
+void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
 {
-	int i = 0;
-	ft_printf("Stack a:\n");
-	while (i < 6)
-	{	
-		ft_printf("i is %d | value %d\n", i, d->a[i]);
-		i++;
+	*a = d->head_a;
+	*b = d->head_b;
+	int a_end = 0;
+	int b_end = 0;
+
+	while (a_end == 0 | b_end == 0)
+	{
+		if ((*a)->value != '\0')
+			ft_printf("{green}%15d", (*a)->value);
+		if ((*b)->value != '\0')
+			ft_printf("{yellow}%15d", (*b)->value);
+		if ((*a)->next)
+			*a = (*a)->next;
+		else
+			a_end = 1;
+		if ((*b)->next)
+			*b = (*b)->next;
+		else
+			b_end = 1;
+		ft_printf("\n");
 	}
+	ft_printf("{green}%15s", "-");
+	ft_printf("{yellow}%15s\n", "-");
+	ft_printf("{green}%15s", "a");
+	ft_printf("{yellow}%15s\n", "b");
 }

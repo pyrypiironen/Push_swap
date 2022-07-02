@@ -12,7 +12,7 @@
 
 # include "../../includes/push_swap.h"
 
-int	ps_atoi(const char *str, t_data *d)
+int	ps_atoi(const char *str, t_data *d) // data just for error cases
 {
 	unsigned long int	res;
 	int					sign;
