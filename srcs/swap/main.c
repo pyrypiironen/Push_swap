@@ -32,7 +32,25 @@ integers>\n");
 	format_structs(data, &a, &b);
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);
-	print_stacks(data, &a, &b); // Delete in the end
+
+	 // * * * * * Testing * * * * * Delete in the end * * * * *
+	print_stacks(data, &a, &b);
+	swap_a(data, &a);
+	print_stacks(data, &a, &b);
+	push_b(data, &a, &b);
+	print_stacks(data, &a, &b);
+	push_a(data, &a, &b);
+	print_stacks(data, &a, &b);
+	push_b(data, &a, &b);
+	push_b(data, &a, &b);
+	print_stacks(data, &a, &b);
+	swap_b(data, &b);
+	print_stacks(data, &a, &b);
+	swap_both(data, &a, &b);
+	print_stacks(data, &a, &b);
+
+	// * * * * * Testing ends * * * * *
+
 	return (0);
 }
 
@@ -61,6 +79,7 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
 	int a_end = 0;
 	int b_end = 0;
 
+	ft_printf("{blue}Heads: %8d %14d\n", d->head_a->value, d->head_b->value);
 	while (a_end == 0 | b_end == 0)
 	{
 		if ((*a)->value != '\0')
@@ -81,4 +100,7 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
 	ft_printf("{yellow}%15s\n", "-");
 	ft_printf("{green}%15s", "a");
 	ft_printf("{yellow}%15s\n", "b");
+	ft_printf("{green}%15s", "-");
+	ft_printf("{yellow}%15s\n", "-");
+
 }

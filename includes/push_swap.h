@@ -40,6 +40,14 @@ void	read_argu(char *arg, t_data *d, t_stack **a);
 void	add_to_stack(char str[12], t_data *d, t_stack **a);
 t_stack	*new_node();
 
+// Operations
+void	swap_a(t_data *d, t_stack **a);
+void	swap_b(t_data *d, t_stack **b);
+void	swap_both(t_data *d, t_stack **a, t_stack **b);
+void	push_a(t_data *d, t_stack **a, t_stack **b);
+void	push_b(t_data *d, t_stack **a, t_stack **b);
+
+
 
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);
