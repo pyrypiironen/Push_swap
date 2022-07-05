@@ -32,7 +32,7 @@ typedef struct	s_stack
 }				t_stack;
 
 void	ps_error(t_data *d);
-void	format_structs(t_data *d, t_stack **a, t_stack **b);
+void	format_structs(t_data *d, t_stack **a);
 // Read input
 void	check_flags(char **argv, t_data *d, int argc);
 void	read_input(char **argv, t_data *d, t_stack *a);
@@ -46,6 +46,8 @@ void	swap_b(t_data *d, t_stack **b);
 void	swap_both(t_data *d, t_stack **a, t_stack **b);
 void	push_a(t_data *d, t_stack **a, t_stack **b);
 void	push_b(t_data *d, t_stack **a, t_stack **b);
+void	rotate_a(t_data *d, t_stack **a);
+void	rotate_b(t_data *d, t_stack **b);
 
 
 
