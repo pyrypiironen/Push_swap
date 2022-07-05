@@ -39,3 +39,11 @@ void	rotate_b(t_data *d, t_stack **b)
 	d->head_b = (*b)->next;
 	(*b)->next = NULL;
 }
+
+void	rotate_both(t_data *d, t_stack **a, t_stack **b)
+{
+	ft_printf("{red}rotate_both (rr) done.\n");
+
+	rotate_a(d, a);
+	rotate_b(d, b);
+}

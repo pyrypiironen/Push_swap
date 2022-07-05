@@ -74,14 +74,12 @@ void	read_argu(char *arg, t_data *d, t_stack **a)
 
 void	add_to_stack(char str[12], t_data *d, t_stack **a)
 {
-	//ft_printf("{red}%10d\n", (*a)->value);
 	if ((*a)->value != '\0')
 	{
 		(*a)->next = new_node();
 		*a = (*a)->next;
 	}
 	(*a)->value = ps_atoi(str, d);
-	//ft_printf("{green}%10d\n", (*a)->value);
 }
 
 t_stack	*new_node()
