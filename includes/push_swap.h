@@ -50,6 +50,8 @@ void	rotate_a(t_data *d, t_stack **a);
 void	rotate_b(t_data *d, t_stack **b);
 void	rotate_both(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_a(t_data *d, t_stack **a);
+void	rev_rotate_b(t_data *d, t_stack **b);
+void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
 
 
 

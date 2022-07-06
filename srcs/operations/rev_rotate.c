@@ -27,3 +27,27 @@ void	rev_rotate_a(t_data *d, t_stack **a)
 		*a = (*a)->next;		// *a is new last element after loop
 	(*a)->next = NULL;
 }
+
+void	rev_rotate_b(t_data *d, t_stack **b)
+{
+	ft_printf("{red}rev_rotate_b done.\n");
+	
+	if (d->head_b == NULL || d->head_b->next == NULL)
+		return;
+	while ((*b)->next)
+		*b = (*b)->next;
+	(*b)->next = d->head_b;
+	d->head_b = *b;
+	*b = (*b)->next;
+	while ((*b)->next != d->head_b)
+		*b = (*b)->next;
+	(*b)->next = NULL;
+}
+
+void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
+{
+	ft_printf("{red}rev_rotate_both (rrr) done.\n");
+
+	rev_rotate_a(d, a);
+	rev_rotate_b(d, b);
+}
