@@ -24,7 +24,7 @@ void	swap_a(t_data *d, t_stack **a)
 	tmp = (*a)->next->next;	// tmp is pointer to third element
 	(*a)->next->next = *a;	// second element point to original first element 
 	d->head_a = (*a)->next;	// second element is new head
-	(*a)->next =tmp;		// original first element point to third element
+	(*a)->next = tmp;		// original first element point to third element
 }
 
 void	swap_b(t_data *d, t_stack **b)
@@ -39,7 +39,7 @@ void	swap_b(t_data *d, t_stack **b)
 	tmp = (*b)->next->next;
 	(*b)->next->next = *b;
 	d->head_b = (*b)->next;
-	(*b)->next =tmp;
+	(*b)->next = tmp;
 }
 
 void	swap_both(t_data *d, t_stack **a, t_stack **b)

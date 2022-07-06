@@ -19,11 +19,11 @@ void	rotate_a(t_data *d, t_stack **a)
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
 	while ((*a)->next)
-		(*a) = (*a)->next;
-	(*a)->next = d->head_a;	// last element point to first element
+		*a = (*a)->next;
+	(*a)->next = d->head_a;		// last element point to first element
 	*a = d->head_a;
-	d->head_a = (*a)->next;	// original second element is new head
-	(*a)->next = NULL;		// original first element point to null
+	d->head_a = (*a)->next;		// original second element is new head
+	(*a)->next = NULL;			// original first element is new end
 }
 
 void	rotate_b(t_data *d, t_stack **b)

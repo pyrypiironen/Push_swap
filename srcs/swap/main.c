@@ -59,6 +59,8 @@ integers>\n");
 	print_stacks(data, &a, &b);
 	rotate_both(data, &a, &b);
 	print_stacks(data, &a, &b);
+	rev_rotate_a(data, &a);
+	print_stacks(data, &a, &b);
 
 
 	// * * * * * Testing ends * * * * *
