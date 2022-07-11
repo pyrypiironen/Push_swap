@@ -74,12 +74,23 @@ void	read_argu(char *arg, t_data *d, t_stack **a)
 
 void	add_to_stack(char str[12], t_data *d, t_stack **a)
 {
+	t_stack	*tmp;
+
+	tmp = d->head_a;
 	if ((*a)->value != '\0')
 	{
 		(*a)->next = new_node();
 		*a = (*a)->next;
 	}
 	(*a)->value = ps_atoi(str, d);
+	(*a)->next = NULL;
+	//Check that there is no duplicate to new value.
+	while (tmp != *a)
+	{
+		if (tmp->value == (*a)->value)
+			ps_error(d);
+		tmp = tmp->next;
+	}
 }
 
 t_stack	*new_node()
