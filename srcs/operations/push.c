@@ -14,7 +14,8 @@
 
 void	push_b(t_data *d, t_stack **a, t_stack **b)
 {
-	ft_printf("{red}push_b done.\n");
+	if (d->pw == 1)
+		ft_printf("pa\n");
 
 	if (d->head_a == NULL)
 		return;
@@ -32,7 +33,8 @@ void	push_b(t_data *d, t_stack **a, t_stack **b)
 
 void	push_a(t_data *d, t_stack **a, t_stack **b)
 {
-	ft_printf("{red}push_a done.\n");
+	if (d->pw == 1)
+		ft_printf("pb\n");
 
 	if (d->head_b == NULL)
 		return;

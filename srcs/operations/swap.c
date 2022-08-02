@@ -16,8 +16,8 @@ void	swap_a(t_data *d, t_stack **a)
 {
 	t_stack	*tmp;
 
-	ft_printf("{red}swap_a done.\n");
-
+	if (d->pw == 1)
+		ft_printf("sa\n");
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
 	*a = d->head_a;
@@ -31,7 +31,8 @@ void	swap_b(t_data *d, t_stack **b)
 {
 	t_stack	*tmp;
 
-	ft_printf("{red}swap_b done.\n");
+	if (d->pw == 1)
+		ft_printf("sb\n");
 
 	if (d->head_b == NULL | d->head_b->next == NULL)
 		return;
@@ -44,8 +45,25 @@ void	swap_b(t_data *d, t_stack **b)
 
 void	swap_both(t_data *d, t_stack **a, t_stack **b)
 {
-	ft_printf("{red}sswap_both (ss) done.\n");
+	t_stack	*tmp;
 
-	swap_a(d, a);
-	swap_b(d, b);
+	if (d->pw == 1)
+		ft_printf("ss\n");
+	// Protection for swap_a and swap_b
+	if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL | \
+		d->head_b->next == NULL)
+		return;
+	// Swap_a
+	*a = d->head_a;
+	tmp = (*a)->next->next;
+	(*a)->next->next = *a;
+	d->head_a = (*a)->next;
+	(*a)->next = tmp;
+	// Swap_b
+	*b = d->head_b;
+	tmp = (*b)->next->next;
+	(*b)->next->next = *b;
+	d->head_b = (*b)->next;
+	(*b)->next = tmp;
+
 }

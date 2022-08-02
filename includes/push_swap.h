@@ -23,6 +23,8 @@ typedef struct s_data
 	// Flags
 	int			visual;
 	int			colors;
+	// Else
+	int			pw;
 }				t_data;
 
 typedef struct	s_stack

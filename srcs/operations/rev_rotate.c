@@ -14,7 +14,8 @@
 
 void	rev_rotate_a(t_data *d, t_stack **a)
 {
-	ft_printf("{red}rev_rotate_a done.\n");
+	if (d->pw == 1)
+		ft_printf("rra\n");
 	
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
@@ -30,7 +31,8 @@ void	rev_rotate_a(t_data *d, t_stack **a)
 
 void	rev_rotate_b(t_data *d, t_stack **b)
 {
-	ft_printf("{red}rev_rotate_b done.\n");
+	if (d->pw == 1)
+		ft_printf("rrb\n");
 	
 	if (d->head_b == NULL || d->head_b->next == NULL)
 		return;
@@ -46,8 +48,28 @@ void	rev_rotate_b(t_data *d, t_stack **b)
 
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
 {
-	ft_printf("{red}rev_rotate_both (rrr) done.\n");
-
-	rev_rotate_a(d, a);
-	rev_rotate_b(d, b);
+	if (d->pw == 1)
+		ft_printf("rrr\n");
+	// Protection for rev_rotate_a and rev_rotate_b
+	if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL || \
+		d->head_b->next == NULL)
+		return;
+	// Rev_rotate_a
+	while ((*a)->next)
+		*a = (*a)->next;
+	(*a)->next = d->head_a;
+	d->head_a = *a;
+	*a = (*a)->next;
+	while ((*a)->next != d->head_a)
+		*a = (*a)->next;
+	(*a)->next = NULL;
+	// Rev_rotate_b
+	while ((*b)->next)
+		*b = (*b)->next;
+	(*b)->next = d->head_b;
+	d->head_b = *b;
+	*b = (*b)->next;
+	while ((*b)->next != d->head_b)
+		*b = (*b)->next;
+	(*b)->next = NULL;
 }
