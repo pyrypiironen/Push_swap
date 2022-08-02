@@ -102,5 +102,6 @@ t_stack	*new_node()
 		exit(-1); // Check this once more
 	new->value = '\0';
 	new->next = NULL;
+	new->sequence = 1;
 	return (new);
 }

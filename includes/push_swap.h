@@ -29,10 +29,14 @@ typedef struct	s_stack
 {
 	int			value;
 	struct		s_stack	*next;
+	int			sequence;
+	//int			segment;
 }				t_stack;
 
 void	ps_error(t_data *d);
 void	format_structs(t_data *d, t_stack **a);
+void	set_sequence(t_data *d, t_stack **a);
+
 // Read input
 void	check_flags(char **argv, t_data *d, int argc);
 void	read_input(char **argv, t_data *d, t_stack *a);
@@ -52,6 +56,8 @@ void	rotate_both(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_a(t_data *d, t_stack **a);
 void	rev_rotate_b(t_data *d, t_stack **b);
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
+
+// Visualizer
 
 
 

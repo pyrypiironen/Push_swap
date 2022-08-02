@@ -33,6 +33,12 @@ integers>\n");
 	format_structs(data, &a);
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);
+	set_sequence(data, &a);
+
+
+
+
+
 
 	 // * * * * * Testing * * * * * Delete in the end * * * * *
 	ft_printf("{yellow} * * * * * * * * * * Start testing * * * * * * * * * *\n");
@@ -80,16 +86,6 @@ void	ps_error(t_data	*d)
 	exit(-1);
 }
 
-void	format_structs(t_data *d, t_stack **a)
-{
-	d->head_a = *a;
-	d->head_b = NULL;
-	(*a)->value = '\0';
-	(*a)->next = NULL;
-	//(*b)->value = '\0';
-	//(*b)->next = NULL;
-}
-
 void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
 {
 	*a = d->head_a;
@@ -97,14 +93,6 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
 	int a_end = 0;
 	int b_end = 0;
 
-	if (d->head_a != NULL)
-		ft_printf("{blue}Heads: %8d", d->head_a->value);
-	else
-		ft_printf("{blue}Heads: %8s", "");
-	if (d->head_b != NULL)
-		ft_printf("{blue}%15d\n",d->head_b->value);
-	else
-		ft_printf("\n");
 	while (a_end == 0 | b_end == 0)
 	{
 		if (d->head_a != NULL && (*a)->value != '\0' && a_end == 0)

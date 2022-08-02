@@ -59,7 +59,7 @@ void	is_color_2(const char *format, t_struct *d)
 	{
 		d->black = 1;
 		d->pos = 7;
-	}	
+	}
 }
 
 void	set_color_start(t_struct *d)
