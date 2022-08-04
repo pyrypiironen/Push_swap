@@ -12,7 +12,7 @@
 
 # include "../../includes/push_swap.h"
 
-void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
+void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 {
 	system("clear");
 
@@ -45,10 +45,4 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b) // Delete in the end
 	ft_printf("{yellow}%15s\n", "b");
 	sleep(1);
 }
-// void	visualizer(t_data *d, t_stack **a, t_stack **b)
-// {
-// 	*a = d->head_a;
-// 	*b = d->head_b;
 
-
-// }

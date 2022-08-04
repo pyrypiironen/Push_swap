@@ -14,16 +14,34 @@
 
 void	check_flags(char **argv, t_data *d, int argc)
 {
-	d->colors = 0;
+	int	i;
+	
 	d->visual = 0;
-	if (ft_strcmp(argv[1], "-v") == 0)
+	d->paused = 0;
+	d->colors = 0;
+	d->sequence = 0;
+	i = flag_check(argv, d, 1);
+	if (argc > 2 && i == 1)
+		i = flag_check(argv, d, 2);
+	if (argc > 3 && i == 1)
+		i = flag_check(argv, d, 3);
+	if (argc > 4 && i == 1)
+		flag_check(argv, d, 4);
+}
+
+int		flag_check(char **argv, t_data *d, int arg)
+{
+	if (ft_strcmp(argv[arg], "-v") == 0)
 		d->visual = 1;
-	else if (ft_strcmp(argv[1], "-c") == 0)
+	else if (ft_strcmp(argv[arg], "-c") == 0)
 		d->colors = 1;
-	if (argc > 2 && ft_strcmp(argv[2], "-v") == 0)
-			d->visual = 1;
-	else if (argc > 2 && ft_strcmp(argv[2], "-c") == 0)
-			d->colors = 1;
+	else if (ft_strcmp(argv[arg], "-p") == 0)
+		d->paused = 1;
+	else if (ft_strcmp(argv[arg], "-s") == 0)
+		d->sequence = 1;
+	else
+		return (0);
+	return (1);
 }
 
 void	read_input(char **argv, t_data *d, t_stack *a)
@@ -33,7 +51,11 @@ void	read_input(char **argv, t_data *d, t_stack *a)
 	i = 1;
 	if (d->visual == 1)
 		i++;
+	if (d->paused == 1)
+		i++;
 	if (d->colors == 1)
+		i++;
+	if (d->sequence == 1)
 		i++;
 	while (argv[i])
 	{

@@ -22,9 +22,12 @@ typedef struct s_data
 	struct		s_stack	*head_b;
 	// Flags
 	int			visual;
+	int			paused;
 	int			colors;
+	int			sequence;
 	// Else
 	int			pw;
+	int			total;
 }				t_data;
 
 typedef struct	s_stack
@@ -41,6 +44,7 @@ void	set_sequence(t_data *d, t_stack **a);
 
 // Read input
 void	check_flags(char **argv, t_data *d, int argc);
+int		flag_check(char **argv, t_data *d, int arg);
 void	read_input(char **argv, t_data *d, t_stack *a);
 void	read_argu(char *arg, t_data *d, t_stack **a);
 void	add_to_stack(char str[12], t_data *d, t_stack **a);
