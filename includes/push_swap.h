@@ -28,6 +28,8 @@ typedef struct s_data
 	// Else
 	int			pw;
 	int			total;
+	int			a_depth;
+	int			b_depth;
 }				t_data;
 
 typedef struct	s_stack
@@ -62,6 +64,10 @@ void	rotate_both(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_a(t_data *d, t_stack **a);
 void	rev_rotate_b(t_data *d, t_stack **b);
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
+
+// The algorithm
+void	sort_stack(t_data *d, t_stack **a, t_stack **b);
+void	push_segments(t_data *d, t_stack **a, t_stack **b, int segments);
 
 // Visualizer
 

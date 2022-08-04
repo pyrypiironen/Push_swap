@@ -15,7 +15,8 @@
 void	set_sequence(t_data *d, t_stack **a)
 {
 	t_stack	*tmp;
-
+	
+	d->total = 1;
 	if (d->head_a == NULL)
 		return;
 	*a = d->head_a;
@@ -33,7 +34,10 @@ void	set_sequence(t_data *d, t_stack **a)
 		if ((*a)->next == NULL)
 			break ;
 		(*a) = (*a)->next;
+		d->total++;
 	}
+	d->a_depth = d->total;
+	d->b_depth = 0;
 }
 
 void	format_structs(t_data *d, t_stack **a)

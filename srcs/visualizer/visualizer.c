@@ -43,6 +43,7 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 	ft_printf("{yellow}%15s\n", "_");
 	ft_printf("{green}%15s", "a");
 	ft_printf("{yellow}%15s\n", "b");
+
 	sleep(1);
 }
 
