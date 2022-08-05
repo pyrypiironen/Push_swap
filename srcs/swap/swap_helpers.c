@@ -38,6 +38,21 @@ void	set_sequence(t_data *d, t_stack **a)
 	}
 	d->a_depth = d->total;
 	d->b_depth = 0;
+	set_segment(d, a);
+}
+
+void	set_segment(t_data *d, t_stack **a)
+{
+	*a = d->head_a;
+	//if (d->total >= 200)
+		d->segments = 31;
+	while (1)
+	{
+		(*a)->segment = (*a)->sequence / (double)(d->total / d->segments);
+		if ((*a)->next == NULL)
+			break ;
+		(*a) = (*a)->next;
+	}
 }
 
 void	format_structs(t_data *d, t_stack **a)

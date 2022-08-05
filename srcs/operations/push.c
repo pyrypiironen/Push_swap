@@ -15,7 +15,7 @@
 void	push_b(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->pw == 1)
-		ft_printf("pa\n");
+		ft_printf("pb\n");
 	if (d->head_a == NULL)
 		return;
 	*a = d->head_a;
@@ -28,12 +28,14 @@ void	push_b(t_data *d, t_stack **a, t_stack **b)
 	else
 		(*a)->next = NULL;	// if stack b is empty next is null
 	d->head_b = *a;			// original first element of a is new head of b
+	*a = d->head_a;
+	*b = d->head_b;
 }
 
 void	push_a(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->pw == 1)
-		ft_printf("pb\n");
+		ft_printf("pa\n");
 	if (d->head_b == NULL)
 		return;
 	*b = d->head_b;
@@ -46,4 +48,6 @@ void	push_a(t_data *d, t_stack **a, t_stack **b)
 	else
 		(*b)->next = NULL;
 	d->head_a = *b;
+	*a = d->head_a;
+	*b = d->head_b;
 }

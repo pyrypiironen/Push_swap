@@ -15,33 +15,44 @@
 void	sort_stack(t_data *d, t_stack **a, t_stack **b)
 {
 	//if (d->total >= 200)
-	push_segments(d, a, b, 32);
+	push_segments(d, a, b);
 }
 
-void	push_segments(t_data *d, t_stack **a, t_stack **b, int segments)
+void	push_segments(t_data *d, t_stack **a, t_stack **b)
 {
-	int	i;
 	int	min;
 	int	max;
 
-	i = 0;
-	min = segments / 2 - 2;
-	max = segments / 2 + 1;
-	*a = d->head_a;
-	*b = d->head_a;
-	while (min >= 0)
+	min = (d->segments + 1) / 2 - 2; //14, 15
+	max = (d->segments + 1) / 2 + 1; // 16,17
+	while (min >= 0 && d->head_a != NULL)
 	{
-		while (i < d->total)
+		while (still_left(d, min, max) == 1)
 		{
-			if ((*a)->sequence / (d->total / segments) >= min \
-			&& (*a)->sequence / (d->total / segments) <= max)
+			if ((*a)->segment >= min && (*a)->segment <= max)
 				push_b(d, a, b);
 			else
-			 	rotate_a(d, a);
-			i++;
-			*a = (*a)->next;
+				rotate_a(d, a);
 		}
 		min -= 2;
 		max += 2;
 	}
+}
+
+int		still_left(t_data *d, int min, int max)
+{
+	t_stack	*tmp;
+
+	tmp = d->head_a;
+	if (tmp == NULL)
+		return (0);
+	while (1)
+	{
+		if (tmp->segment >= min && tmp->segment <= max)
+			return (1);
+		if (tmp->next == NULL)
+			break ;
+		tmp = tmp->next;
+	}
+	return (0);
 }

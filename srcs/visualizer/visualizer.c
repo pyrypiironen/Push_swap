@@ -14,7 +14,8 @@
 
 void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 {
-	system("clear");
+	//system("clear");
+	ft_printf("{yellow}* * * * * * * * * * Start * * * * * * * * *\n");
 
 	*a = d->head_a;
 	*b = d->head_b;
@@ -24,11 +25,11 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 	while (a_end == 0 | b_end == 0)
 	{
 		if (d->head_a != NULL && (*a)->value != '\0' && a_end == 0)
-			ft_printf("{green}%15d", (*a)->value);
+			ft_printf("{green}%15d | %15d | %15d", (*a)->value, (*a)->sequence, (*a)->segment);
 		else
 			ft_printf("%15s", "");
 		if (d->head_b != NULL && (*b)->value != '\0' && b_end == 0)
-			ft_printf("{yellow}%15d", (*b)->value);
+			ft_printf("{yellow}%15d | %15d | %15d", (*b)->value, (*b)->sequence, (*b)->segment);
 		if (d->head_a != NULL && (*a)->next)
 			*a = (*a)->next;
 		else
