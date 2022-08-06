@@ -29,8 +29,8 @@ typedef struct s_data
 	int			pw;
 	int			total;
 	int			segments;
-	int			a_depth;
-	int			b_depth;
+	int			min;
+	int			max;
 }				t_data;
 
 typedef struct	s_stack
@@ -70,7 +70,8 @@ void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
 // The algorithm
 void	sort_stack(t_data *d, t_stack **a, t_stack **b);
 void	push_segments(t_data *d, t_stack **a, t_stack **b);
-int		still_left(t_data *d, int min, int max);
+int		still_left(t_data *d);
+void	push_back(t_data *d, t_stack **a, t_stack **b);
 
 // Visualizer
 
@@ -79,7 +80,7 @@ int		still_left(t_data *d, int min, int max);
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);
 
-// Just for testing - delete in the end
+// Visualizer
 void	print_stacks(t_data *d, t_stack **a, t_stack **b);
 
 #endif

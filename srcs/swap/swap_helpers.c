@@ -36,8 +36,6 @@ void	set_sequence(t_data *d, t_stack **a)
 		(*a) = (*a)->next;
 		d->total++;
 	}
-	d->a_depth = d->total;
-	d->b_depth = 0;
 	set_segment(d, a);
 }
 
@@ -63,6 +61,4 @@ void	format_structs(t_data *d, t_stack **a)
 	(*a)->value = '\0';
 	(*a)->next = NULL;
 	(*a)->sequence = 1;
-	//(*b)->value = '\0';
-	//(*b)->next = NULL;
 }

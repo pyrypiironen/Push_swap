@@ -70,6 +70,7 @@ integers>\n");
 	// rev_rotate_b(data, &b);
 	// print_stacks(data, &a, &b);
 	// rev_rotate_both(data, &a, &b);
+	
 	print_stacks(data, &a, &b);
 
 

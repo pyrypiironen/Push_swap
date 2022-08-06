@@ -17,19 +17,24 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 	//system("clear");
 	ft_printf("{yellow}* * * * * * * * * * Start * * * * * * * * *\n");
 
-	*a = d->head_a;
-	*b = d->head_b;
+	//*a = d->head_a;
+	//*b = d->head_b;
 	int a_end = 0;
 	int b_end = 0;
+	int count = 0;
 
 	while (a_end == 0 | b_end == 0)
 	{
 		if (d->head_a != NULL && (*a)->value != '\0' && a_end == 0)
 			ft_printf("{green}%15d | %15d | %15d", (*a)->value, (*a)->sequence, (*a)->segment);
 		else
-			ft_printf("%15s", "");
+			ft_printf("%51s", "");
 		if (d->head_b != NULL && (*b)->value != '\0' && b_end == 0)
+		{
 			ft_printf("{yellow}%15d | %15d | %15d", (*b)->value, (*b)->sequence, (*b)->segment);
+			if ((*b)->segment == 0)
+				count++;
+		}
 		if (d->head_a != NULL && (*a)->next)
 			*a = (*a)->next;
 		else
@@ -41,9 +46,10 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 		ft_printf("\n");
 	}
 	ft_printf("{green}%15s", "_");
-	ft_printf("{yellow}%15s\n", "_");
+	ft_printf("{yellow}%51s\n", "_");
 	ft_printf("{green}%15s", "a");
-	ft_printf("{yellow}%15s\n", "b");
+	ft_printf("{yellow}%51s\n", "b");
+	ft_printf("{blue} \ncount %d\n", count);
 
 	sleep(1);
 }
