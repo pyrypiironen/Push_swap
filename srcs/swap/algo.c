@@ -19,7 +19,9 @@ void	sort_stack(t_data *d, t_stack **a, t_stack **b)
 	//else
 	//{
 		push_segments(d, a, b);
-		//push_back(d, a, b);
+		push_back(d, a, b);
+	while ((*a)->sequence != 1)
+		rev_rotate_a(d, a);
 	//}
 }
 
@@ -72,4 +74,3 @@ int		still_left(t_data *d)
 	}
 	return (0);
 }
-

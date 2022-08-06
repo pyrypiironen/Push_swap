@@ -27,6 +27,7 @@ void	rev_rotate_a(t_data *d, t_stack **a)
 	while ((*a)->next != d->head_a)
 		*a = (*a)->next;		// *a is new last element after loop
 	(*a)->next = NULL;
+	*a = d->head_a;
 }
 
 void	rev_rotate_b(t_data *d, t_stack **b)
@@ -44,6 +45,7 @@ void	rev_rotate_b(t_data *d, t_stack **b)
 	while ((*b)->next != d->head_b)
 		*b = (*b)->next;
 	(*b)->next = NULL;
+	*b = d->head_b;
 }
 
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
@@ -72,4 +74,6 @@ void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
 	while ((*b)->next != d->head_b)
 		*b = (*b)->next;
 	(*b)->next = NULL;
+	*a = d->head_a;
+	*b = d->head_b;
 }

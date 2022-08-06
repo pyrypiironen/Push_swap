@@ -31,6 +31,8 @@ typedef struct s_data
 	int			segments;
 	int			min;
 	int			max;
+	int			way_big;
+	int			way_small;
 }				t_data;
 
 typedef struct	s_stack
@@ -72,6 +74,13 @@ void	sort_stack(t_data *d, t_stack **a, t_stack **b);
 void	push_segments(t_data *d, t_stack **a, t_stack **b);
 int		still_left(t_data *d);
 void	push_back(t_data *d, t_stack **a, t_stack **b);
+int		distance_to_big(t_data *d, t_stack **b);
+int		distance_to_small(t_data *d, t_stack **b);
+void	seek_big(t_data *d, t_stack **a, t_stack **b);
+void	seek_small(t_data *d, t_stack **a, t_stack **b);
+
+
+
 
 // Visualizer
 
