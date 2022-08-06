@@ -25,6 +25,7 @@ void	swap_a(t_data *d, t_stack **a)
 	(*a)->next->next = *a;	// second element point to original first element 
 	d->head_a = (*a)->next;	// second element is new head
 	(*a)->next = tmp;		// original first element point to third element
+	*a = d->head_a;
 }
 
 void	swap_b(t_data *d, t_stack **b)
@@ -33,7 +34,6 @@ void	swap_b(t_data *d, t_stack **b)
 
 	if (d->pw == 1)
 		ft_printf("sb\n");
-
 	if (d->head_b == NULL | d->head_b->next == NULL)
 		return;
 	*b = d->head_b;
@@ -41,6 +41,7 @@ void	swap_b(t_data *d, t_stack **b)
 	(*b)->next->next = *b;
 	d->head_b = (*b)->next;
 	(*b)->next = tmp;
+	*b = d->head_b;
 }
 
 void	swap_both(t_data *d, t_stack **a, t_stack **b)
@@ -65,5 +66,6 @@ void	swap_both(t_data *d, t_stack **a, t_stack **b)
 	(*b)->next->next = *b;
 	d->head_b = (*b)->next;
 	(*b)->next = tmp;
-
+	*a = d->head_a;
+	*b = d->head_b;
 }

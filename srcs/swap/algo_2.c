@@ -12,33 +12,67 @@ void	push_back(t_data *d, t_stack **a, t_stack **b)
 			seek_big(d, a, b);
 		else
 			seek_small(d, a, b);
-		//print_stacks(d, a, b);
 	}
 }
 
 void	seek_big(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->way_big == 1)
-		while ((*b)->sequence != d->max)
+	while ((*b)->sequence != d->max)
+	{
+		if ((*b)->sequence == d->max - 1)
+		{
+			d->head_b = *b;
+			push_a(d, a, b);
+			d->second = 1;
+		}
+		else if (d->way_big == 1)
 			rev_rotate_b(d, b);
-	else
-		while ((*b)->sequence != d->max)
+		else
 			rotate_b(d, b);
+	}
 	push_a(d, a, b);
+	if (d->second == 1)
+	{
+		swap_a(d, a);
+		d->max--;
+		d->second = 0;
+	}
 	d->max--;
 }
 
 void	seek_small(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->way_small == 1)
-		while ((*b)->sequence != d->min)
+	while ((*b)->sequence != d->min)
+	{
+		if ((*b)->sequence == d->min + 1)
+		{
+			d->head_b = *b;
+			push_a(d, a, b);
+			d->second = 1;
+		}
+		else if (d->way_small == 1)
 			rev_rotate_b(d, b);
-	else
-		while ((*b)->sequence != d->min)
+		else
 			rotate_b(d, b);
+	}
 	push_a(d, a, b);
-	rotate_a(d, a); //rotate both if something something
 	d->min++;
+	if (d->second == 1)
+	{
+		d->min++;
+		match_place(d, a, b);
+		d->second = 0;
+	}
+	match_place(d, a, b);
+}
+
+void	match_place(t_data *d, t_stack **a, t_stack **b)
+{
+	if ((distance_to_big(d, b) <= distance_to_small(d, b) && d->way_big == 0) \
+	|| (distance_to_big(d, b) >= distance_to_small(d, b) && d->way_small == 0))
+		rotate_both(d, a, b);
+	else
+		rotate_a(d, a);
 }
 
 int	distance_to_big(t_data *d, t_stack **b)
@@ -48,6 +82,8 @@ int	distance_to_big(t_data *d, t_stack **b)
 
 	dist = 0;
 	i = 0;
+	if (*b == NULL)
+		return (0);
 	while ((*b)->sequence != d->max)
 	{
 		*b = (*b)->next;
@@ -78,6 +114,8 @@ int	distance_to_small(t_data *d, t_stack **b)
 
 	dist = 0;
 	i = 0;
+	if (*b == NULL)
+		return (0);
 	while ((*b)->sequence != d->min)
 	{
 		*b = (*b)->next;

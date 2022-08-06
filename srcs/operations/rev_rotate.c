@@ -16,7 +16,6 @@ void	rev_rotate_a(t_data *d, t_stack **a)
 {
 	if (d->pw == 1)
 		ft_printf("rra\n");
-	
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
 	while ((*a)->next)
@@ -34,7 +33,6 @@ void	rev_rotate_b(t_data *d, t_stack **b)
 {
 	if (d->pw == 1)
 		ft_printf("rrb\n");
-	
 	if (d->head_b == NULL || d->head_b->next == NULL)
 		return;
 	while ((*b)->next)

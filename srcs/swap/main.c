@@ -20,9 +20,8 @@ int		main(int argc, char **argv)
 
 	data = (t_data *)malloc(sizeof(t_data));
 	a = (t_stack *)malloc(sizeof(t_stack));
-	//b = (t_stack *)malloc(sizeof(t_stack));
 	b = NULL;
-	if (data == NULL | a == NULL)// | b == NULL)
+	if (data == NULL | a == NULL)
 		ps_error(data);
 	if (argc == 1)
 	{
@@ -34,10 +33,10 @@ integers>\n");
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);
 	set_sequence(data, &a);
-	sort_stack(data, &a, &b);
+	solver(data, &a, &b);
 
 
-
+	print_stacks(data, &a, &b);
 
 
 
@@ -71,7 +70,7 @@ integers>\n");
 	// print_stacks(data, &a, &b);
 	// rev_rotate_both(data, &a, &b);
 	
-	//print_stacks(data, &a, &b);
+
 
 
 	// * * * * * Testing ends * * * * *
@@ -79,10 +78,3 @@ integers>\n");
 	return (0);
 }
 
-void	ps_error(t_data	*d)
-{
-	ft_printf("Error\n");
-	//free memory
-	d->visual = 100;// (this line is for silence the error message)
-	exit(-1);
-}

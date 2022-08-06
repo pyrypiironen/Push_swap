@@ -12,7 +12,7 @@
 
 # include "../../includes/push_swap.h"
 
-void	sort_stack(t_data *d, t_stack **a, t_stack **b)
+void	solver(t_data *d, t_stack **a, t_stack **b)
 {
 	// if (d->total < 4)
 	// 	sort_small(d, a, b);

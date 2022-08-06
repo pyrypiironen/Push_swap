@@ -33,6 +33,7 @@ typedef struct s_data
 	int			max;
 	int			way_big;
 	int			way_small;
+	int			second;
 }				t_data;
 
 typedef struct	s_stack
@@ -70,7 +71,7 @@ void	rev_rotate_b(t_data *d, t_stack **b);
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
 
 // The algorithm
-void	sort_stack(t_data *d, t_stack **a, t_stack **b);
+void	solver(t_data *d, t_stack **a, t_stack **b);
 void	push_segments(t_data *d, t_stack **a, t_stack **b);
 int		still_left(t_data *d);
 void	push_back(t_data *d, t_stack **a, t_stack **b);
@@ -78,6 +79,7 @@ int		distance_to_big(t_data *d, t_stack **b);
 int		distance_to_small(t_data *d, t_stack **b);
 void	seek_big(t_data *d, t_stack **a, t_stack **b);
 void	seek_small(t_data *d, t_stack **a, t_stack **b);
+void	match_place(t_data *d, t_stack **a, t_stack **b);
 
 
 
