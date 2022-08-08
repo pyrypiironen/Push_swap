@@ -36,7 +36,7 @@ integers>\n");
 	solver(data, &a, &b);
 
 
-	print_stacks(data, &a, &b);
+	//print_stacks(data, &a, &b);
 
 
 
