@@ -24,7 +24,7 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 	while (a_end == 0 | b_end == 0)
 	{
 		if (d->head_a != NULL && (*a)->value != '\0' && a_end == 0)
-			ft_printf("{green}%15d | %15d | %15d", (*a)->value, (*a)->sequence, (*a)->segment);
+			ft_printf("{green}%15d | %15d | %15d | %15d", (*a)->value, (*a)->sequence, (*a)->segment, (*a)->smallest);
 		else
 			ft_printf("%51s", "");
 		if (d->head_b != NULL && (*b)->value != '\0' && b_end == 0)

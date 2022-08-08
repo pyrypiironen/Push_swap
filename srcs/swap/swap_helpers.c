@@ -36,8 +36,25 @@ void	set_sequence(t_data *d, t_stack **a)
 		(*a) = (*a)->next;
 		d->total++;
 	}
+	target_sequence(d, a);
 	set_segment(d, a);
 }
+void	target_sequence(t_data *d, t_stack **a)
+{
+	*a = d->head_a;
+	while (1)
+	{
+		if ((*a)->sequence == 1)
+			(*a)->smallest = 1;
+		(*a)->sequence += d->total / 2;
+		if ((*a)->sequence > d->total)
+			(*a)->sequence -= d->total;
+		if ((*a)->next == NULL)
+			break ;
+		*a = (*a)->next;
+	}
+}
+
 
 void	set_segment(t_data *d, t_stack **a)
 {
@@ -49,7 +66,7 @@ void	set_segment(t_data *d, t_stack **a)
 		(*a)->segment = (*a)->sequence / (double)(d->total / d->segments);
 		if ((*a)->next == NULL)
 			break ;
-		(*a) = (*a)->next;
+		*a = (*a)->next;
 	}
 }
 
@@ -62,6 +79,7 @@ void	format_structs(t_data *d, t_stack **a)
 	(*a)->value = '\0';
 	(*a)->next = NULL;
 	(*a)->sequence = 1;
+	(*a)->smallest = 0;
 }
 
 void	ps_error(t_data	*d)

@@ -42,11 +42,13 @@ typedef struct	s_stack
 	struct		s_stack	*next;
 	int			sequence;
 	int			segment;
+	int			smallest;
 }				t_stack;
 
 void	ps_error(t_data *d);
 void	format_structs(t_data *d, t_stack **a);
 void	set_sequence(t_data *d, t_stack **a);
+void	target_sequence(t_data *d, t_stack **a);
 void	set_segment(t_data *d, t_stack **a);
 
 // Read input
@@ -75,6 +77,7 @@ void	solver(t_data *d, t_stack **a, t_stack **b);
 void	push_segments(t_data *d, t_stack **a, t_stack **b);
 int		still_left(t_data *d);
 void	push_back(t_data *d, t_stack **a, t_stack **b);
+void	smallest_to_head(t_data *d, t_stack **a);
 int		distance_to_big(t_data *d, t_stack **b);
 int		distance_to_small(t_data *d, t_stack **b);
 void	seek_big(t_data *d, t_stack **a, t_stack **b);

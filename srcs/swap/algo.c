@@ -20,15 +20,15 @@ void	solver(t_data *d, t_stack **a, t_stack **b)
 	//{
 		push_segments(d, a, b);
 		push_back(d, a, b);
-	while ((*a)->sequence != 1)
-		rev_rotate_a(d, a);
+		smallest_to_head(d, a);
+			
 	//}
 }
 
 void	push_segments(t_data *d, t_stack **a, t_stack **b)
 {
-	d->min = (d->segments + 1) / 2 - 2; //14, 15
-	d->max = (d->segments + 1) / 2 + 1; // 16,17
+	d->min = (d->segments + 1) / 2 - 2;
+	d->max = (d->segments + 1) / 2 + 1;
 	while (d->min >= 0 && d->head_a != NULL)
 	{
 		while (still_left(d) == 1)
@@ -73,4 +73,29 @@ int		still_left(t_data *d)
 		tmp = tmp->next;
 	}
 	return (0);
+}
+
+void	smallest_to_head(t_data *d, t_stack **a)
+{
+	int	dist;
+	int	i;
+
+	dist = 0;
+	i = 0;
+	while ((*a)->smallest != 1)
+	{
+		*a = (*a)->next;
+		dist++;
+	}
+	while ((*a)->next != NULL)
+	{
+		*a = (*a)->next;
+		i++;
+	}
+	if (dist > i)
+		while ((*a)->smallest != 1)
+			rev_rotate_a(d, a);
+	else
+		while ((*a)->smallest != 1)
+			rotate_a(d, a);
 }
