@@ -17,6 +17,8 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 	//system("clear");
 	ft_printf("{yellow}* * * * * * * * * * Start * * * * * * * * *\n");
 
+	*a = d->head_a;
+	*b = d->head_b;
 
 	int a_end = 0;
 	int b_end = 0;
@@ -45,6 +47,8 @@ void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 	ft_printf("{yellow}%51s\n", "_");
 	ft_printf("{green}%15s", "a");
 	ft_printf("{yellow}%51s\n", "b");
+
+	
 
 	*a = d->head_a;
 	*b = d->head_b;

@@ -18,17 +18,13 @@ int		main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
+	if (argc == 1)
+		return (0);
 	data = (t_data *)malloc(sizeof(t_data));
 	a = (t_stack *)malloc(sizeof(t_stack));
 	b = NULL;
 	if (data == NULL | a == NULL)
 		ps_error(data);
-	if (argc == 1)
-	{
-		ft_printf("usage: ./push_swap <The 'stack a' formatted as a list of \
-integers>\n");
-		return (0);
-	}
 	format_structs(data, &a);
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);

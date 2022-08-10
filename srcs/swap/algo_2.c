@@ -70,7 +70,7 @@ int	distance_to_big(t_data *d, t_stack **b)
 {
 	int	dist;
 	int	i;
-
+	
 	dist = 0;
 	i = 0;
 	if (*b == NULL)

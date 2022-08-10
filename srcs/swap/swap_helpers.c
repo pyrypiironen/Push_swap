@@ -55,15 +55,20 @@ void	target_sequence(t_data *d, t_stack **a)
 	}
 }
 
-
 void	set_segment(t_data *d, t_stack **a)
 {
 	*a = d->head_a;
-	//if (d->total >= 200)
+	if (d->total <= 40)
+		d->segments = 3;
+	else if (d->total <= 350)
+		d->segments = 15;
+	else
 		d->segments = 31;
 	while (1)
 	{
 		(*a)->segment = (*a)->sequence / (double)(d->total / d->segments);
+		if ((*a)->segment > d->segments)
+			(*a)->segment = d->segments;
 		if ((*a)->next == NULL)
 			break ;
 		*a = (*a)->next;

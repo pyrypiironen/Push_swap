@@ -14,7 +14,9 @@
 
 void	solver(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->total == 2)
+	if (d->total == 1)
+		return ;
+	else if (d->total == 2)
 		solve_two(d, a);
 	else if (d->total == 3)
 		solve_three(d, a);
@@ -29,6 +31,7 @@ void	solver(t_data *d, t_stack **a, t_stack **b)
 
 void	push_segments(t_data *d, t_stack **a, t_stack **b)
 {
+	*a = d->head_a;
 	d->min = (d->segments + 1) / 2 - 2;
 	d->max = (d->segments + 1) / 2 + 1;
 	while (d->min >= 0 && d->head_a != NULL)
@@ -36,7 +39,7 @@ void	push_segments(t_data *d, t_stack **a, t_stack **b)
 		while (still_left(d) == 1)
 		{
 			if ((*a)->segment >= d->min && (*a)->segment <= d->max \
-			&& (*a)->sequence > 3)
+				&& (*a)->sequence > 3)
 			{
 				push_b(d, a, b);
 				// Left segments min and max top of the stack b, but rotate
@@ -52,6 +55,9 @@ void	push_segments(t_data *d, t_stack **a, t_stack **b)
 			}
 			else
 				rotate_a(d, a);
+			//ft_printf("{purple}\n(*a)->segment: %6d | d->min: %6d | d->max: %6d\n", (*a)->segment, d->min, d->max);
+			//ft_printf("{green}(*a)->sequence: %6d\n", (*a)->sequence);
+			
 		}
 		d->min -= 2;
 		d->max += 2;
@@ -94,6 +100,7 @@ void	smallest_to_head(t_data *d, t_stack **a)
 		*a = (*a)->next;
 		i++;
 	}
+	*a = d->head_a;
 	if (dist > i)
 		while ((*a)->smallest != 1)
 			rev_rotate_a(d, a);
