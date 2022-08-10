@@ -66,15 +66,6 @@ void	seek_small(t_data *d, t_stack **a, t_stack **b)
 	match_place(d, a, b);
 }
 
-void	match_place(t_data *d, t_stack **a, t_stack **b)
-{
-	if ((distance_to_big(d, b) <= distance_to_small(d, b) && d->way_big == 0) \
-	|| (distance_to_big(d, b) >= distance_to_small(d, b) && d->way_small == 0))
-		rotate_both(d, a, b);
-	else
-		rotate_a(d, a);
-}
-
 int	distance_to_big(t_data *d, t_stack **b)
 {
 	int	dist;
@@ -96,8 +87,8 @@ int	distance_to_big(t_data *d, t_stack **b)
 	}
 	if (dist > i)
 	{
-		// The way_b indicates shortest way to biggest number
-		// (rotate or reverse rotate).
+		// d->way_b indicates shortest way to biggest number:
+		// rotate (0) or reverse rotate(1).
 		d->way_big = 1;
 		dist = i;
 	}

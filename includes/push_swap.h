@@ -83,6 +83,9 @@ int		distance_to_small(t_data *d, t_stack **b);
 void	seek_big(t_data *d, t_stack **a, t_stack **b);
 void	seek_small(t_data *d, t_stack **a, t_stack **b);
 void	match_place(t_data *d, t_stack **a, t_stack **b);
+void	solve_two(t_data *d, t_stack **a);
+void	solve_three(t_data *d, t_stack **a);
+void	solve_three_sequence(t_data *d, t_stack **a);
 
 
 

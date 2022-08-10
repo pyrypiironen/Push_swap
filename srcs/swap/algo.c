@@ -14,15 +14,17 @@
 
 void	solver(t_data *d, t_stack **a, t_stack **b)
 {
-	// if (d->total < 4)
-	// 	sort_small(d, a, b);
-	//else
-	//{
+	if (d->total == 2)
+		solve_two(d, a);
+	else if (d->total == 3)
+		solve_three(d, a);
+	else
+	{
 		push_segments(d, a, b);
+		solve_three_sequence(d, a);
 		push_back(d, a, b);
 		smallest_to_head(d, a);
-			
-	//}
+	}
 }
 
 void	push_segments(t_data *d, t_stack **a, t_stack **b)
