@@ -14,7 +14,7 @@
 
 void	solver(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->total == 1)
+	if (check_order(d, a) == 1 || d->total == 1)
 		return ;
 	else if (d->total == 2)
 		solve_two(d, a);
@@ -27,6 +27,21 @@ void	solver(t_data *d, t_stack **a, t_stack **b)
 		push_back(d, a, b);
 		smallest_to_head(d, a);
 	}
+}
+
+int		check_order(t_data *d, t_stack **a)
+{
+	*a = d->head_a;
+	if (d->head_b != NULL)
+		return (0);
+	while ((*a)->next != NULL)
+	{
+		if ((*a)->value > (*a)->next->value)
+			return (0);
+		*a = (*a)->next;
+	}
+	*a = d->head_a;
+	return (1);
 }
 
 void	push_segments(t_data *d, t_stack **a, t_stack **b)

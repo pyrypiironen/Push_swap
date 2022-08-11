@@ -79,7 +79,6 @@ void	format_structs(t_data *d, t_stack **a)
 {
 	d->head_a = *a;
 	d->head_b = NULL;
-	d->pw = 1;
 	d->second = 0;
 	(*a)->value = '\0';
 	(*a)->next = NULL;

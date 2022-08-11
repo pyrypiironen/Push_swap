@@ -87,7 +87,11 @@ void	solve_two(t_data *d, t_stack **a);
 void	solve_three(t_data *d, t_stack **a);
 void	solve_three_sequence(t_data *d, t_stack **a);
 
+int		check_order(t_data *d, t_stack **a);
 
+// Checker
+void	checker(t_data *d, t_stack **a, t_stack **b);
+void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line);
 
 
 // Visualizer

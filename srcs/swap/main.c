@@ -25,6 +25,7 @@ int		main(int argc, char **argv)
 	b = NULL;
 	if (data == NULL | a == NULL)
 		ps_error(data);
+	data->pw = 1;
 	format_structs(data, &a);
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);
@@ -32,7 +33,7 @@ int		main(int argc, char **argv)
 	solver(data, &a, &b);
 
 
-	//print_stacks(data, &a, &b);
+	print_stacks(data, &a, &b);
 
 
 
