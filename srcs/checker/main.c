@@ -50,7 +50,8 @@ void	checker(t_data *d, t_stack **a, t_stack **b)
 		if (i == 5)
 		{
 			while (read(0, tmp, 1) > 0)
-				;
+				if (tmp[0] == '\n')
+					break ;
 			ps_error(d);
 		}
 	}
