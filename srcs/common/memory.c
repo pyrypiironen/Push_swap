@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	ps_error(t_data	*d)
 {
@@ -21,7 +21,7 @@ void	ps_error(t_data	*d)
 
 void	free_all(t_data *d)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	if (d->head_a != NULL)
 	{

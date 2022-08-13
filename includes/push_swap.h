@@ -94,6 +94,7 @@ void	set_segment(t_data *d, t_stack **a);
 
 // Memory handling
 void	ps_error(t_data *d);
+void	free_all(t_data *d);
 
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);

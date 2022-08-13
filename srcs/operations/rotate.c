@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	rotate_a(t_data *d, t_stack **a)
 {
 	if (d->pw == 1)
 		ft_printf("ra\n");
 	if (d->head_a == NULL || d->head_a->next == NULL)
-		return;
+		return ;
 	while ((*a)->next)
 		*a = (*a)->next;
 	(*a)->next = d->head_a;		// last element point to first element
@@ -32,7 +32,7 @@ void	rotate_b(t_data *d, t_stack **b)
 	if (d->pw == 1)
 		ft_printf("rb\n");
 	if (d->head_b == NULL || d->head_b->next == NULL)
-		return;
+		return ;
 	while ((*b)->next)
 		(*b) = (*b)->next;
 	(*b)->next = d->head_b;
@@ -46,10 +46,6 @@ void	rotate_both(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->pw == 1)
 		ft_printf("rr\n");
-	// Protection for rotate_a and roteate_b
-	// if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL || \
-	// 	d->head_b->next == NULL)
-	// 	return;
 	// Rotate_a (protection done different way than at function ra)
 	if (d->head_a != NULL && d->head_a->next != NULL)
 	{

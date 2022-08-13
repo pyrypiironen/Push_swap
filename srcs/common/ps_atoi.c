@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int	ps_atoi(const char *str, t_data *d) // data just for error cases
+int	ps_atoi(const char *str, t_data *d)
 {
 	unsigned long int	res;
 	int					sign;

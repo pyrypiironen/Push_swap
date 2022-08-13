@@ -10,12 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	check_flags(char **argv, t_data *d, int argc)
 {
 	int	i;
-	
+
 	d->visual = 0;
 	d->paused = 0;
 	d->colors = 0;
@@ -29,7 +29,7 @@ void	check_flags(char **argv, t_data *d, int argc)
 		flag_check(argv, d, 4);
 }
 
-int		flag_check(char **argv, t_data *d, int arg)
+int	flag_check(char **argv, t_data *d, int arg)
 {
 	if (ft_strcmp(argv[arg], "-v") == 0)
 		d->visual = 1;

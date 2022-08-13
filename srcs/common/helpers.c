@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	set_sequence(t_data *d, t_stack **a)
 {
 	t_stack	*tmp;
-	
+
 	d->total = 1;
 	if (d->head_a == NULL)
-		return;
+		return ;
 	*a = d->head_a;
 	while (1)
 	{
@@ -39,6 +39,7 @@ void	set_sequence(t_data *d, t_stack **a)
 	target_sequence(d, a);
 	set_segment(d, a);
 }
+
 void	target_sequence(t_data *d, t_stack **a)
 {
 	*a = d->head_a;

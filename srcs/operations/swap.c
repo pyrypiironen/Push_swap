@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	swap_a(t_data *d, t_stack **a)
 {
@@ -19,7 +19,7 @@ void	swap_a(t_data *d, t_stack **a)
 	if (d->pw == 1)
 		ft_printf("sa\n");
 	if (d->head_a == NULL || d->head_a->next == NULL)
-		return;
+		return ;
 	*a = d->head_a;
 	tmp = (*a)->next->next;	// tmp is pointer to third element
 	(*a)->next->next = *a;	// second element point to original first element 
@@ -35,7 +35,7 @@ void	swap_b(t_data *d, t_stack **b)
 	if (d->pw == 1)
 		ft_printf("sb\n");
 	if (d->head_b == NULL || d->head_b->next == NULL)
-		return;
+		return ;
 	*b = d->head_b;
 	tmp = (*b)->next->next;
 	(*b)->next->next = *b;
@@ -50,10 +50,6 @@ void	swap_both(t_data *d, t_stack **a, t_stack **b)
 
 	if (d->pw == 1)
 		ft_printf("ss\n");
-	// Protection for swap_a and swap_b
-	// if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL | \
-	// 	d->head_b->next == NULL)
-	// 	return;
 	// Swap_a
 	if (d->head_a != NULL && d->head_a->next != NULL)
 	{
