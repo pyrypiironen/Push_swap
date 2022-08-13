@@ -72,6 +72,7 @@ int		main(int argc, char **argv)
 
 	// * * * * * Testing ends * * * * *
 
+	free_all(data);
 	return (0);
 }
 

@@ -45,20 +45,6 @@ typedef struct	s_stack
 	int			smallest;
 }				t_stack;
 
-void	ps_error(t_data *d);
-void	format_structs(t_data *d, t_stack **a);
-void	set_sequence(t_data *d, t_stack **a);
-void	target_sequence(t_data *d, t_stack **a);
-void	set_segment(t_data *d, t_stack **a);
-
-// Read input
-void	check_flags(char **argv, t_data *d, int argc);
-int		flag_check(char **argv, t_data *d, int arg);
-void	read_input(char **argv, t_data *d, t_stack *a);
-void	read_argu(char *arg, t_data *d, t_stack **a);
-void	add_to_stack(char str[12], t_data *d, t_stack **a);
-t_stack	*new_node();
-
 // Operations
 void	swap_a(t_data *d, t_stack **a);
 void	swap_b(t_data *d, t_stack **b);
@@ -72,7 +58,15 @@ void	rev_rotate_a(t_data *d, t_stack **a);
 void	rev_rotate_b(t_data *d, t_stack **b);
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
 
-// The algorithm
+// Read input
+void	check_flags(char **argv, t_data *d, int argc);
+int		flag_check(char **argv, t_data *d, int arg);
+void	read_input(char **argv, t_data *d, t_stack *a);
+void	read_argu(char *arg, t_data *d, t_stack **a);
+void	add_to_stack(char str[12], t_data *d, t_stack **a);
+t_stack	*new_node();
+
+// Solver
 void	solver(t_data *d, t_stack **a, t_stack **b);
 void	push_segments(t_data *d, t_stack **a, t_stack **b);
 int		still_left(t_data *d);
@@ -86,17 +80,20 @@ void	match_place(t_data *d, t_stack **a, t_stack **b);
 void	solve_two(t_data *d, t_stack **a);
 void	solve_three(t_data *d, t_stack **a);
 void	solve_three_sequence(t_data *d, t_stack **a);
-
 int		check_order(t_data *d, t_stack **a);
 
 // Checker
 void	checker(t_data *d, t_stack **a, t_stack **b);
 void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line);
 
+//Helpers
+void	format_structs(t_data *d, t_stack **a);
+void	set_sequence(t_data *d, t_stack **a);
+void	target_sequence(t_data *d, t_stack **a);
+void	set_segment(t_data *d, t_stack **a);
 
-// Visualizer
-
-
+// Memory handling
+void	ps_error(t_data *d);
 
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);
