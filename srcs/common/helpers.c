@@ -85,11 +85,3 @@ void	format_structs(t_data *d, t_stack **a)
 	(*a)->sequence = 1;
 	(*a)->smallest = 0;
 }
-
-void	ps_error(t_data	*d)
-{
-	ft_printf("Error\n");
-	//free memory
-	d->visual = 100;// (this line is for silence the error message)
-	exit(-1);
-}

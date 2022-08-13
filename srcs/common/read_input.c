@@ -55,7 +55,7 @@ void	read_argu(char *arg, t_data *d, t_stack **a)
 		return ;
 	// Else if there is space and the next character is digit
 	// or '-' function call itself again with new starting point.
-	else if (arg[i] == ' ' && (ft_isdigit(arg[i + 1]) == 1 | arg[i + 1] == '-'))
+	else if (arg[i] == ' ' && (ft_isdigit(arg[i + 1]) == 1 || arg[i + 1] == '-'))
 		i++;
 	else
 		ps_error(d);
