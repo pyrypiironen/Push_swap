@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+# include "../../includes/push_swap.h"
 
 void	set_sequence(t_data *d, t_stack **a)
 {
 	t_stack	*tmp;
-
+	
 	d->total = 1;
 	if (d->head_a == NULL)
-		return ;
+		return;
 	*a = d->head_a;
 	while (1)
 	{
@@ -39,7 +39,6 @@ void	set_sequence(t_data *d, t_stack **a)
 	target_sequence(d, a);
 	set_segment(d, a);
 }
-
 void	target_sequence(t_data *d, t_stack **a)
 {
 	*a = d->head_a;
@@ -85,4 +84,12 @@ void	format_structs(t_data *d, t_stack **a)
 	(*a)->next = NULL;
 	(*a)->sequence = 1;
 	(*a)->smallest = 0;
+}
+
+void	ps_error(t_data	*d)
+{
+	ft_printf("Error\n");
+	//free memory
+	d->visual = 100;// (this line is for silence the error message)
+	exit(-1);
 }

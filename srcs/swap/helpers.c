@@ -1,64 +1,4 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   algo_helpers.c                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/13 16:59:02 by ppiirone          #+#    #+#             */
-/*   Updated: 2022/08/13 16:59:04 by ppiirone         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 # include "../../includes/push_swap.h"
-
-void	solve_two(t_data *d, t_stack **a)
-{
-	*a = d->head_a;
-	if ((*a)->value > (*a)->next->value)
-		swap_a(d, a);
-}
-
-void	solve_three(t_data *d, t_stack **a)
-{
-	*a = d->head_a;
-	// While values are in right order
-	while ((*a)->value > (*a)->next->value || \
-		(*a)->next->value > (*a)->next->next->value)
-	{
-		// If biggest are in the middle
-		if ((*a)->value < (*a)->next->value && \
-			(*a)->next->value > (*a)->next->next->value)
-			rev_rotate_a(d, a);
-		// Else if order are middle-min-max.
-		else if ((*a)->value > (*a)->next->value && \
-			(*a)->value < (*a)->next->next->value && \
-			(*a)->next->value < (*a)->next->next->value)
-			swap_a(d, a);
-		// Else
-		else
-			rotate_a(d, a);
-	}
-}
-
-// Same than solve_three, but put numbers order by their sequence numbers.
-void	solve_three_sequence(t_data *d, t_stack **a)
-{
-	*a = d->head_a;
-	while ((*a)->sequence > (*a)->next->sequence || \
-		(*a)->next->sequence > (*a)->next->next->sequence)
-	{
-		if ((*a)->sequence < (*a)->next->sequence && \
-			(*a)->next->sequence > (*a)->next->next->sequence)
-			rev_rotate_a(d, a);
-		else if ((*a)->sequence > (*a)->next->sequence && \
-			(*a)->sequence < (*a)->next->next->sequence && \
-			(*a)->next->sequence < (*a)->next->next->sequence)
-			swap_a(d, a);
-		else
-			rotate_a(d, a);
-	}
-}
 
 void	match_place(t_data *d, t_stack **a, t_stack **b)
 {
@@ -67,4 +7,30 @@ void	match_place(t_data *d, t_stack **a, t_stack **b)
 		rotate_both(d, a, b);
 	else
 		rotate_a(d, a);
+}
+
+void	smallest_to_head(t_data *d, t_stack **a)
+{
+	int	dist;
+	int	i;
+
+	dist = 0;
+	i = 0;
+	while ((*a)->smallest != 1)
+	{
+		*a = (*a)->next;
+		dist++;
+	}
+	while ((*a)->next != NULL)
+	{
+		*a = (*a)->next;
+		i++;
+	}
+	*a = d->head_a;
+	if (dist > i)
+		while ((*a)->smallest != 1)
+			rev_rotate_a(d, a);
+	else
+		while ((*a)->smallest != 1)
+			rotate_a(d, a);
 }

@@ -10,14 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+# include "../../includes/push_swap.h"
 
 void	push_b(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->pw == 1)
 		ft_printf("pb\n");
 	if (d->head_a == NULL)
-		return ;
+		return;
 	*a = d->head_a;
 	d->head_a = (*a)->next;	// second element of a is new head of a
 	if (d->head_b != NULL)
@@ -37,7 +37,7 @@ void	push_a(t_data *d, t_stack **a, t_stack **b)
 	if (d->pw == 1)
 		ft_printf("pa\n");
 	if (d->head_b == NULL)
-		return ;
+		return;
 	*b = d->head_b;
 	d->head_b = (*b)->next;
 	if (d->head_a != NULL)

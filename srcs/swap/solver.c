@@ -44,82 +44,50 @@ int		check_order(t_data *d, t_stack **a)
 	return (1);
 }
 
-void	push_segments(t_data *d, t_stack **a, t_stack **b)
+void	solve_two(t_data *d, t_stack **a)
 {
 	*a = d->head_a;
-	d->min = (d->segments + 1) / 2 - 2;
-	d->max = (d->segments + 1) / 2 + 1;
-	while (d->min >= 0 && d->head_a != NULL)
-	{
-		while (still_left(d) == 1)
-		{
-			if ((*a)->segment >= d->min && (*a)->segment <= d->max \
-				&& (*a)->sequence > 3)
-			{
-				push_b(d, a, b);
-				// Left segments min and max top of the stack b, but rotate
-				// another ones to bottom. Also rotate stack a on same move
-				// if necessary.
-				if ((*b)->segment == d->min + 1 || (*b)->segment == d->max - 1)
-				{
-					if ((*a)->segment < d->min || (*a)->segment > d->max)
-						rotate_both(d, a, b);
-					else
-						rotate_b(d, b);	
-				}
-			}
-			else
-				rotate_a(d, a);
-			//ft_printf("{purple}\n(*a)->segment: %6d | d->min: %6d | d->max: %6d\n", (*a)->segment, d->min, d->max);
-			//ft_printf("{green}(*a)->sequence: %6d\n", (*a)->sequence);
-			
-		}
-		d->min -= 2;
-		d->max += 2;
-	}
+	if ((*a)->value > (*a)->next->value)
+		swap_a(d, a);
 }
 
-int		still_left(t_data *d)
+void	solve_three(t_data *d, t_stack **a)
 {
-	t_stack	*tmp;
-
-	tmp = d->head_a;
-	if (tmp == NULL || tmp->next == NULL || tmp->next->next == NULL \
-	|| tmp->next->next->next == NULL)
-		return (0);
-	while (1)
-	{
-		if (tmp->segment >= d->min && tmp->segment <= d->max)
-			return (1);
-		if (tmp->next == NULL)
-			break ;
-		tmp = tmp->next;
-	}
-	return (0);
-}
-
-void	smallest_to_head(t_data *d, t_stack **a)
-{
-	int	dist;
-	int	i;
-
-	dist = 0;
-	i = 0;
-	while ((*a)->smallest != 1)
-	{
-		*a = (*a)->next;
-		dist++;
-	}
-	while ((*a)->next != NULL)
-	{
-		*a = (*a)->next;
-		i++;
-	}
 	*a = d->head_a;
-	if (dist > i)
-		while ((*a)->smallest != 1)
+	// While values are in right order
+	while ((*a)->value > (*a)->next->value || \
+		(*a)->next->value > (*a)->next->next->value)
+	{
+		// If biggest are in the middle
+		if ((*a)->value < (*a)->next->value && \
+			(*a)->next->value > (*a)->next->next->value)
 			rev_rotate_a(d, a);
-	else
-		while ((*a)->smallest != 1)
+		// Else if order are middle-min-max.
+		else if ((*a)->value > (*a)->next->value && \
+			(*a)->value < (*a)->next->next->value && \
+			(*a)->next->value < (*a)->next->next->value)
+			swap_a(d, a);
+		// Else
+		else
 			rotate_a(d, a);
+	}
+}
+
+// Same than solve_three, but put numbers order by their sequence numbers.
+void	solve_three_sequence(t_data *d, t_stack **a)
+{
+	*a = d->head_a;
+	while ((*a)->sequence > (*a)->next->sequence || \
+		(*a)->next->sequence > (*a)->next->next->sequence)
+	{
+		if ((*a)->sequence < (*a)->next->sequence && \
+			(*a)->next->sequence > (*a)->next->next->sequence)
+			rev_rotate_a(d, a);
+		else if ((*a)->sequence > (*a)->next->sequence && \
+			(*a)->sequence < (*a)->next->next->sequence && \
+			(*a)->next->sequence < (*a)->next->next->sequence)
+			swap_a(d, a);
+		else
+			rotate_a(d, a);
+	}
 }

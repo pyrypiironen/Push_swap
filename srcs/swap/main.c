@@ -21,15 +21,10 @@ int		main(int argc, char **argv)
 	if (argc == 1)
 		return (0);
 	data = (t_data *)malloc(sizeof(t_data));
-		if (data == NULL)
-			exit(0);
 	a = (t_stack *)malloc(sizeof(t_stack));
-	if (a == NULL)
-	{
-		free(data);
-		exit(0);
-	}
 	b = NULL;
+	if (data == NULL | a == NULL)
+		ps_error(data);
 	data->pw = 1;
 	format_structs(data, &a);
 	check_flags(argv, data, argc);
@@ -77,7 +72,6 @@ int		main(int argc, char **argv)
 
 	// * * * * * Testing ends * * * * *
 
-	free_all(data);
 	return (0);
 }
 
