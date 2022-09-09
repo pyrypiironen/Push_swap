@@ -33,7 +33,7 @@ int		main(int argc, char **argv)
 	solver(data, &a, &b);
 
 
-	print_stacks(data, &a, &b);
+	//print_stacks(data, &a, &b);
 
 
 

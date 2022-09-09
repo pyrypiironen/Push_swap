@@ -1,11 +1,11 @@
-// HEADER
+
 
 
 NAME = push_swap
 CHECKER = checker
-HEADER = includes/push_swap.h
 FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 LIBFT = libft/libft.a
+OBJS_DIR = objs/
 
 
 SWAP_FILES =	solver.c \
@@ -29,12 +29,12 @@ COMMON_FILES =	helpers.c \
 
 
 SWAP_SRCS = $(addprefix srcs/swap/, $(SWAP_FILES))
-CHECKER_SRCS = $(addprefix srcs/checker/, $(CHECKER_FILES))
+CHECKA_SRCS = $(addprefix srcs/checker/, $(CHECKER_FILES))
 OPERATIONS_SRCS = $(addprefix srcs/operations/, $(OPERATIONS_FILES))
 COMMON_SRCS = $(addprefix srcs/common/, $(COMMON_FILES))
 
 PUSH_SWAP_SRCS = $(SWAP_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS)
-CHECKER_SRCS = $(CHECKER_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS)
+CHECKER_SRCS = $(CHECKA_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS)
 
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
@@ -43,6 +43,10 @@ CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 .PHONY: all clean 
 
 all: $(NAME) $(CHECKER)
+		@mkdir $(OBJS_DIR)
+		@mv $(PUSH_SWAP_OBJS) $(OBJS_DIR)
+		@mv $(CHECKA_SRCS:.c=.o) $(OBJS_DIR)
+		@echo "Push_swap and checker succesfully done."
 
 $(NAME): $(PUSH_SWAP_OBJS) $(LIBFT)
 		@gcc $(FLAGS) -o $@ $^
@@ -51,7 +55,13 @@ $(CHECKER): $(CHECKER_OBJS) $(LIBFT)
 		@gcc $(FLAGS) -o $@ $^
 
 $(LIBFT):
-		$(MAKE) -C libft
+		@$(MAKE) -C libft
 
 clean:
-		$(MAKE) -C libft clean
+		@rm -rf $(OBJS_DIR)
+		@$(MAKE) -C libft clean
+
+fclean: clean
+		@rm -f $(NAME) $(CHECKER)
+		@$(MAKE) -C libft fclean
+		@echo "Make fclean successfully done."

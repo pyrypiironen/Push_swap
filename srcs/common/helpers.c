@@ -93,3 +93,18 @@ void	ps_error(t_data	*d)
 	d->visual = 100;// (this line is for silence the error message)
 	exit(-1);
 }
+
+int		check_order(t_data *d, t_stack **a)
+{
+	*a = d->head_a;
+	if (d->head_b != NULL)
+		return (0);
+	while ((*a)->next != NULL)
+	{
+		if ((*a)->value > (*a)->next->value)
+			return (0);
+		*a = (*a)->next;
+	}
+	*a = d->head_a;
+	return (1);
+}

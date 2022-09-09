@@ -86,7 +86,6 @@ void	match_place(t_data *d, t_stack **a, t_stack **b);
 void	solve_two(t_data *d, t_stack **a);
 void	solve_three(t_data *d, t_stack **a);
 void	solve_three_sequence(t_data *d, t_stack **a);
-int		check_order(t_data *d, t_stack **a);
 
 // Checker
 void	checker(t_data *d, t_stack **a, t_stack **b);
@@ -94,6 +93,7 @@ void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line);
 
 // Helpers
 void	ps_error(t_data *d);
+int		check_order(t_data *d, t_stack **a);
 
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);
