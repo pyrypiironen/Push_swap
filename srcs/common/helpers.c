@@ -89,9 +89,18 @@ void	format_structs(t_data *d, t_stack **a)
 void	ps_error(t_data	*d)
 {
 	ft_printf("Error\n");
-	//free memory
-	d->visual = 100;// (this line is for silence the error message)
-	exit(-1);
+	while (d->head_a)
+	{
+		free(d->head_a);
+		d->head_a = d->head_a->next;
+	}
+	while (d->head_b)
+	{
+		free(d->head_b);
+		d->head_b = d->head_b->next;
+	}
+	free(d);
+	exit(1);
 }
 
 int		check_order(t_data *d, t_stack **a)

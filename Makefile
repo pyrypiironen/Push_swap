@@ -1,5 +1,14 @@
-
-
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ppiirone <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/09/11 15:09:29 by ppiirone          #+#    #+#              #
+#    Updated: 2022/09/11 15:09:30 by ppiirone         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 NAME = push_swap
 CHECKER = checker
@@ -40,7 +49,7 @@ PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 
 
-.PHONY: all clean 
+
 
 all: $(NAME) $(CHECKER)
 		@mkdir $(OBJS_DIR)
@@ -65,3 +74,7 @@ fclean: clean
 		@rm -f $(NAME) $(CHECKER)
 		@$(MAKE) -C libft fclean
 		@echo "Make fclean successfully done."
+
+re: fclean all
+
+.PHONY: all clean fclean re
