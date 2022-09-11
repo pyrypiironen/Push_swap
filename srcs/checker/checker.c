@@ -44,6 +44,7 @@ void	checker(t_data *d, t_stack **a, t_stack **b)
 
 void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line)
 {
+
 	if (ft_strcmp(line, "sa") == 0)
 		swap_a(d, a);
 	else if (ft_strcmp(line, "sb") == 0)

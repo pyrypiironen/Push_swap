@@ -28,6 +28,17 @@ int		main(int argc, char **argv)
 	format_structs(data, &a);
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);
+	//
+	t_stack *tmp;
+	ft_printf("Stack a: ");
+	tmp = data->head_a;
+	while (tmp)
+	{
+		ft_printf("%i ", tmp->value);
+		tmp = tmp->next;
+	}
+	ft_printf("\n");
+
 	//set_sequence(data, &a);
 	checker(data, &a, &b);
 	if (check_order(data, &a) == 1)

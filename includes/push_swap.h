@@ -38,7 +38,7 @@ typedef struct s_data
 
 typedef struct	s_stack
 {
-	int			value;
+	long		value;
 	struct		s_stack	*next;
 	int			sequence;
 	int			segment;
@@ -57,7 +57,7 @@ int		flag_check(char **argv, t_data *d, int arg);
 void	read_input(char **argv, t_data *d, t_stack *a);
 void	read_argu(char *arg, t_data *d, t_stack **a);
 void	add_to_stack(char str[12], t_data *d, t_stack **a);
-t_stack	*new_node();
+t_stack	*new_node(t_data *d);
 
 // Operations
 void	swap_a(t_data *d, t_stack **a);

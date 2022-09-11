@@ -67,9 +67,9 @@ void	add_to_stack(char str[12], t_data *d, t_stack **a)
 	t_stack	*tmp;
 
 	tmp = d->head_a;
-	if ((*a)->value != '\0')
+	if ((*a)->value != 2147483648)
 	{
-		(*a)->next = new_node();
+		(*a)->next = new_node(d);
 		*a = (*a)->next;
 	}
 	(*a)->value = ps_atoi(str, d);
@@ -83,13 +83,13 @@ void	add_to_stack(char str[12], t_data *d, t_stack **a)
 	}
 }
 
-t_stack	*new_node()
+t_stack	*new_node(t_data *d)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	if (new == NULL)
-		exit(-1); // Check this once more
+		ps_error(d);
 	new->value = '\0';
 	new->next = NULL;
 	new->sequence = 1;

@@ -291,3 +291,60 @@ echo
 echo
 echo "Press enter to move forward."
 read
+# Right tests 3a
+clear
+echo "Checker program - Right tests"
+echo
+echo "Third test: Run checker with a valid list as parameter of your choice then
+write a valid instruction list that order the integers. Repeat 3 times."
+echo
+echo "Test input: ./checker 0 1 2 3"
+echo
+echo "Right output is 'OK'."
+echo
+echo "Write the action list of your choice (that order the integers):"
+./checker 0 1 2 3
+echo
+echo
+echo
+echo "Press enter to try again."
+read
+# Right tests 3b
+clear
+echo "Checker program - Right tests"
+echo
+echo "Third test: Run checker with a valid list as parameter of your choice then
+write a valid instruction list that order the integers. Repeat 3 times."
+echo
+echo "Test input: ./checker 0 1 2 3"
+echo
+echo "Right output is 'OK'."
+echo
+echo "Write the action list of your choice (that order the integers):"
+./checker 0 1 2 3
+echo
+echo
+echo
+echo "Press enter to try again."
+read
+# Right tests 3c
+clear
+echo "Checker program - Right tests"
+echo
+echo "Third test: Run checker with a valid list as parameter of your choice then
+write a valid instruction list that order the integers. Repeat 3 times."
+echo
+echo "Test input: ./checker 0 1 2 3"
+echo
+echo "Right output is 'OK'."
+echo
+echo "Write the action list of your choice (that order the integers):"
+./checker 0 1 2 3
+echo
+echo
+echo
+echo "Press enter to move forward."
+read
+#
+clear
+echo "Done! "
