@@ -64,7 +64,7 @@ void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line)
 	else if (ft_strcmp(line, "rra") == 0)
 		rev_rotate_a(d, a);
 	else if (ft_strcmp(line, "rrb") == 0)
-		rev_rotate_b(d, a);
+		rev_rotate_b(d, b);
 	else if (ft_strcmp(line, "rrr") == 0)
 		rev_rotate_both(d, a, b);
 	else
