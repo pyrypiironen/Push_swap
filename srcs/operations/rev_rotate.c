@@ -12,10 +12,8 @@
 
 # include "../../includes/push_swap.h"
 
-void	rev_rotate_a(t_data *d, t_stack **a)
+void	rev_rotate_a(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("rra\n");
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
 	while ((*a)->next)
@@ -27,12 +25,14 @@ void	rev_rotate_a(t_data *d, t_stack **a)
 		*a = (*a)->next;		// *a is new last element after loop
 	(*a)->next = NULL;
 	*a = d->head_a;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("rra\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 9);
 }
 
-void	rev_rotate_b(t_data *d, t_stack **b)
+void	rev_rotate_b(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("rrb\n");
 	if (d->head_b == NULL || d->head_b->next == NULL)
 		return;
 	while ((*b)->next)
@@ -44,16 +44,14 @@ void	rev_rotate_b(t_data *d, t_stack **b)
 		*b = (*b)->next;
 	(*b)->next = NULL;
 	*b = d->head_b;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("rrb\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 10);
 }
 
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("rrr\n");
-	// Protection for rev_rotate_a and rev_rotate_b
-	// if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL || \
-	// 	d->head_b->next == NULL)
-	// 	return;
 	// Rev_rotate_a (protection done different way than at function rra)
 	if (d->head_a != NULL && d->head_a->next != NULL)
 	{
@@ -80,4 +78,8 @@ void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
 		*a = d->head_a;
 		*b = d->head_b;
 	}
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("rrr\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 11);
 }

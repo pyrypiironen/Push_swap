@@ -21,7 +21,7 @@ void	read_input(char **argv, t_data *d, t_stack *a)
 		i++;
 	if (d->paused == 1)
 		i++;
-	if (d->colors == 1)
+	if (d->seg_flag == 1)
 		i++;
 	if (d->sequence == 1)
 		i++;

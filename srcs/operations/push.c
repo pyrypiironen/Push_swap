@@ -14,8 +14,6 @@
 
 void	push_b(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("pb\n");
 	if (d->head_a == NULL)
 		return;
 	*a = d->head_a;
@@ -30,12 +28,14 @@ void	push_b(t_data *d, t_stack **a, t_stack **b)
 	d->head_b = *a;			// original first element of a is new head of b
 	*a = d->head_a;
 	*b = d->head_b;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("pb\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 5);
 }
 
 void	push_a(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("pa\n");
 	if (d->head_b == NULL)
 		return;
 	*b = d->head_b;
@@ -50,4 +50,8 @@ void	push_a(t_data *d, t_stack **a, t_stack **b)
 	d->head_a = *b;
 	*a = d->head_a;
 	*b = d->head_b;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("pa\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 4);
 }

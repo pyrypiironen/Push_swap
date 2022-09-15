@@ -37,35 +37,6 @@ int		main(int argc, char **argv)
 
 
 
-	 // * * * * * Testing * * * * * Delete in the end * * * * *
-	// print_stacks(data, &a, &b);
-	// swap_a(data, &a);
-	// print_stacks(data, &a, &b);
-	// push_b(data, &a, &b);
-	// print_stacks(data, &a, &b);
-	// push_a(data, &a, &b);
-	// push_a(data, &a, &b);
-	// push_a(data, &a, &b);
-	// print_stacks(data, &a, &b);
-	// push_b(data, &a, &b);
-	// push_b(data, &a, &b);
-	// push_b(data, &a, &b);
-	// print_stacks(data, &a, &b);
-	// swap_b(data, &b);
-	// print_stacks(data, &a, &b);
-	// swap_both(data, &a, &b);
-	// print_stacks(data, &a, &b);
-	// rotate_a(data, &a);
-	// print_stacks(data, &a, &b);
-	// rotate_b(data, &b);
-	// print_stacks(data, &a, &b);
-	// rotate_both(data, &a, &b);
-	// print_stacks(data, &a, &b);
-	// rev_rotate_a(data, &a);
-	// print_stacks(data, &a, &b);
-	// rev_rotate_b(data, &b);
-	// print_stacks(data, &a, &b);
-	// rev_rotate_both(data, &a, &b);
 	
 
 

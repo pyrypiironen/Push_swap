@@ -36,14 +36,17 @@ COMMON_FILES =	helpers.c \
 				read_flags.c \
 				read_input.c
 
+VISUALIZER_FILES = visualizer.c
+
 
 SWAP_SRCS = $(addprefix srcs/swap/, $(SWAP_FILES))
 CHECKA_SRCS = $(addprefix srcs/checker/, $(CHECKER_FILES))
 OPERATIONS_SRCS = $(addprefix srcs/operations/, $(OPERATIONS_FILES))
 COMMON_SRCS = $(addprefix srcs/common/, $(COMMON_FILES))
+VISUALIZER_SRCS = $(addprefix srcs/visualizer/, $(VISUALIZER_FILES))
 
-PUSH_SWAP_SRCS = $(SWAP_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS)
-CHECKER_SRCS = $(CHECKA_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS)
+PUSH_SWAP_SRCS = $(SWAP_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS) $(VISUALIZER_SRCS)
+CHECKER_SRCS = $(CHECKA_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS) $(VISUALIZER_SRCS)
 
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)

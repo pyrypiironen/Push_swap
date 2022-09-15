@@ -23,7 +23,7 @@ typedef struct s_data
 	// Flags
 	int			visual;
 	int			paused;
-	int			colors;
+	int			seg_flag;
 	int			sequence;
 	// Else
 	int			pw;
@@ -60,16 +60,16 @@ void	add_to_stack(char str[12], t_data *d, t_stack **a);
 t_stack	*new_node(t_data *d);
 
 // Operations
-void	swap_a(t_data *d, t_stack **a);
-void	swap_b(t_data *d, t_stack **b);
+void	swap_a(t_data *d, t_stack **a, t_stack **b);
+void	swap_b(t_data *d, t_stack **a, t_stack **b);
 void	swap_both(t_data *d, t_stack **a, t_stack **b);
 void	push_a(t_data *d, t_stack **a, t_stack **b);
 void	push_b(t_data *d, t_stack **a, t_stack **b);
-void	rotate_a(t_data *d, t_stack **a);
-void	rotate_b(t_data *d, t_stack **b);
+void	rotate_a(t_data *d, t_stack **a, t_stack **b);
+void	rotate_b(t_data *d, t_stack **a, t_stack **b);
 void	rotate_both(t_data *d, t_stack **a, t_stack **b);
-void	rev_rotate_a(t_data *d, t_stack **a);
-void	rev_rotate_b(t_data *d, t_stack **b);
+void	rev_rotate_a(t_data *d, t_stack **a, t_stack **b);
+void	rev_rotate_b(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
 
 // The algorithm
@@ -77,15 +77,15 @@ void	solver(t_data *d, t_stack **a, t_stack **b);
 void	push_segments(t_data *d, t_stack **a, t_stack **b);
 int		still_left(t_data *d);
 void	push_back(t_data *d, t_stack **a, t_stack **b);
-void	smallest_to_head(t_data *d, t_stack **a);
+void	smallest_to_head(t_data *d, t_stack **a, t_stack **b);
 int		distance_to_big(t_data *d, t_stack **b);
 int		distance_to_small(t_data *d, t_stack **b);
 void	seek_big(t_data *d, t_stack **a, t_stack **b);
 void	seek_small(t_data *d, t_stack **a, t_stack **b);
 void	match_place(t_data *d, t_stack **a, t_stack **b);
-void	solve_two(t_data *d, t_stack **a);
-void	solve_three(t_data *d, t_stack **a);
-void	solve_three_sequence(t_data *d, t_stack **a);
+void	solve_two(t_data *d, t_stack **a, t_stack **b);
+void	solve_three(t_data *d, t_stack **a, t_stack **b);
+void	solve_three_sequence(t_data *d, t_stack **a, t_stack **b);
 
 // Checker
 void	checker(t_data *d, t_stack **a, t_stack **b);
@@ -99,6 +99,10 @@ int		check_order(t_data *d, t_stack **a);
 int		ps_atoi(const char *str, t_data *d);
 
 // Visualizer
-void	print_stacks(t_data *d, t_stack **a, t_stack **b);
+void	print_stacks_segments(t_data *d, t_stack **a, t_stack **b);
+void	visualizer(t_data *d, t_stack **a, t_stack **b, int operation);
+void	print_stacks_32(t_data *d, t_stack **a, t_stack **b, int operation);
+void	print_value_segments_32(t_data *d, t_stack **x);
+void	print_value_segments_16(t_data *d, t_stack **x);
 
 #endif

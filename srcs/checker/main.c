@@ -28,7 +28,6 @@ int		main(int argc, char **argv)
 	format_structs(data, &a);
 	check_flags(argv, data, argc);
 	read_input(argv, data, a);
-	//set_sequence(data, &a);
 	checker(data, &a, &b);
 	if (check_order(data, &a) == 1)
 		ft_printf("OK\n");

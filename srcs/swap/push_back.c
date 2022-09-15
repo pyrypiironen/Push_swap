@@ -36,14 +36,14 @@ void	seek_big(t_data *d, t_stack **a, t_stack **b)
 			d->second = 1;
 		}
 		else if (d->way_big == 1)
-			rev_rotate_b(d, b);
+			rev_rotate_b(d, a, b);
 		else
-			rotate_b(d, b);
+			rotate_b(d, a, b);
 	}
 	push_a(d, a, b);
 	if (d->second == 1)
 	{
-		swap_a(d, a);
+		swap_a(d, a, b);
 		d->max--;
 		d->second = 0;
 	}
@@ -61,9 +61,9 @@ void	seek_small(t_data *d, t_stack **a, t_stack **b)
 			d->second = 1;
 		}
 		else if (d->way_small == 1)
-			rev_rotate_b(d, b);
+			rev_rotate_b(d, a, b);
 		else
-			rotate_b(d, b);
+			rotate_b(d, a, b);
 	}
 	push_a(d, a, b);
 	d->min++;

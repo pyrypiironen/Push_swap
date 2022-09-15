@@ -46,9 +46,9 @@ void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line)
 {
 
 	if (ft_strcmp(line, "sa") == 0)
-		swap_a(d, a);
+		swap_a(d, a, b);
 	else if (ft_strcmp(line, "sb") == 0)
-		swap_b(d, b);
+		swap_b(d, a, b);
 	else if (ft_strcmp(line, "ss") == 0)
 		swap_both(d, a, b);
 	else if (ft_strcmp(line, "pa") == 0)
@@ -56,15 +56,15 @@ void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line)
 	else if (ft_strcmp(line, "pb") == 0)
 		push_b(d, a, b);
 	else if (ft_strcmp(line, "ra") == 0)
-		rotate_a(d, a);
+		rotate_a(d, a, b);
 	else if (ft_strcmp(line, "rb") == 0)
-		rotate_b(d, b);
+		rotate_b(d, a, b);
 	else if (ft_strcmp(line, "rr") == 0)
 		rotate_both(d, a, b);
 	else if (ft_strcmp(line, "rra") == 0)
-		rev_rotate_a(d, a);
+		rev_rotate_a(d, a, b);
 	else if (ft_strcmp(line, "rrb") == 0)
-		rev_rotate_b(d, b);
+		rev_rotate_b(d, a, b);
 	else if (ft_strcmp(line, "rrr") == 0)
 		rev_rotate_both(d, a, b);
 	else

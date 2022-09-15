@@ -33,13 +33,11 @@ void	push_segments(t_data *d, t_stack **a, t_stack **b)
 					if ((*a)->segment < d->min || (*a)->segment > d->max)
 						rotate_both(d, a, b);
 					else
-						rotate_b(d, b);	
+						rotate_b(d, a, b);	
 				}
 			}
 			else
-				rotate_a(d, a);
-			//ft_printf("{purple}\n(*a)->segment: %6d | d->min: %6d | d->max: %6d\n", (*a)->segment, d->min, d->max);
-			//ft_printf("{green}(*a)->sequence: %6d\n", (*a)->sequence);
+				rotate_a(d, a, b);
 			
 		}
 		d->min -= 2;

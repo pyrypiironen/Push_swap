@@ -12,12 +12,10 @@
 
 # include "../../includes/push_swap.h"
 
-void	swap_a(t_data *d, t_stack **a)
+void	swap_a(t_data *d, t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (d->pw == 1)
-		ft_printf("sa\n");
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
 	*a = d->head_a;
@@ -26,14 +24,16 @@ void	swap_a(t_data *d, t_stack **a)
 	d->head_a = (*a)->next;	// second element is new head
 	(*a)->next = tmp;		// original first element point to third element
 	*a = d->head_a;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("sa\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 1);
 }
 
-void	swap_b(t_data *d, t_stack **b)
+void	swap_b(t_data *d, t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (d->pw == 1)
-		ft_printf("sb\n");
 	if (d->head_b == NULL || d->head_b->next == NULL)
 		return;
 	*b = d->head_b;
@@ -42,18 +42,16 @@ void	swap_b(t_data *d, t_stack **b)
 	d->head_b = (*b)->next;
 	(*b)->next = tmp;
 	*b = d->head_b;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("sb\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 2);
 }
 
 void	swap_both(t_data *d, t_stack **a, t_stack **b)
 {
 	t_stack	*tmp;
 
-	if (d->pw == 1)
-		ft_printf("ss\n");
-	// Protection for swap_a and swap_b
-	// if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL | \
-	// 	d->head_b->next == NULL)
-	// 	return;
 	// Swap_a
 	if (d->head_a != NULL && d->head_a->next != NULL)
 	{
@@ -74,4 +72,8 @@ void	swap_both(t_data *d, t_stack **a, t_stack **b)
 		*a = d->head_a;
 		*b = d->head_b;
 	}
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("ss\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 3);
 }

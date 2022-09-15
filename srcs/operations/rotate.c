@@ -12,10 +12,8 @@
 
 # include "../../includes/push_swap.h"
 
-void	rotate_a(t_data *d, t_stack **a)
+void	rotate_a(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("ra\n");
 	if (d->head_a == NULL || d->head_a->next == NULL)
 		return;
 	while ((*a)->next)
@@ -25,12 +23,15 @@ void	rotate_a(t_data *d, t_stack **a)
 	d->head_a = (*a)->next;		// original second element is new head
 	(*a)->next = NULL;			// original first element is new end
 	*a = d->head_a;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("ra\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 6);
 }
 
-void	rotate_b(t_data *d, t_stack **b)
+
+void	rotate_b(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("rb\n");
 	if (d->head_b == NULL || d->head_b->next == NULL)
 		return;
 	while ((*b)->next)
@@ -40,16 +41,14 @@ void	rotate_b(t_data *d, t_stack **b)
 	d->head_b = (*b)->next;
 	(*b)->next = NULL;
 	*b = d->head_b;
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("rb\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 7);
 }
 
 void	rotate_both(t_data *d, t_stack **a, t_stack **b)
 {
-	if (d->pw == 1)
-		ft_printf("rr\n");
-	// Protection for rotate_a and roteate_b
-	// if (d->head_a == NULL || d->head_a->next == NULL || d->head_b == NULL || \
-	// 	d->head_b->next == NULL)
-	// 	return;
 	// Rotate_a (protection done different way than at function ra)
 	if (d->head_a != NULL && d->head_a->next != NULL)
 	{
@@ -72,4 +71,8 @@ void	rotate_both(t_data *d, t_stack **a, t_stack **b)
 		(*b)->next = NULL;
 		*b = d->head_b;
 	}
+	if (d->pw == 1 && d->visual == 0)
+		ft_printf("rr\n");
+	else if (d->visual == 1)
+		visualizer(d, a, b, 8);
 }

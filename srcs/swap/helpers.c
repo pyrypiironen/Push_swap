@@ -18,10 +18,10 @@ void	match_place(t_data *d, t_stack **a, t_stack **b)
 	|| (distance_to_big(d, b) >= distance_to_small(d, b) && d->way_small == 0))
 		rotate_both(d, a, b);
 	else
-		rotate_a(d, a);
+		rotate_a(d, a, b);
 }
 
-void	smallest_to_head(t_data *d, t_stack **a)
+void	smallest_to_head(t_data *d, t_stack **a, t_stack **b)
 {
 	int	dist;
 	int	i;
@@ -41,8 +41,8 @@ void	smallest_to_head(t_data *d, t_stack **a)
 	*a = d->head_a;
 	if (dist > i)
 		while ((*a)->smallest != 1)
-			rev_rotate_a(d, a);
+			rev_rotate_a(d, a, b);
 	else
 		while ((*a)->smallest != 1)
-			rotate_a(d, a);
+			rotate_a(d, a, b);
 }
