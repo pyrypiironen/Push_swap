@@ -36,7 +36,9 @@ COMMON_FILES =	helpers.c \
 				read_flags.c \
 				read_input.c
 
-VISUALIZER_FILES = visualizer.c
+VISUALIZER_FILES =	visualizer.c \
+					print_segments.c \
+					print_sequences.c
 
 
 SWAP_SRCS = $(addprefix srcs/swap/, $(SWAP_FILES))
