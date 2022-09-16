@@ -57,22 +57,20 @@ CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
 
 
 all: $(NAME) $(CHECKER)
-		@mkdir $(OBJS_DIR)
-		@mv $(PUSH_SWAP_OBJS) $(OBJS_DIR)
-		@mv $(CHECKA_SRCS:.c=.o) $(OBJS_DIR)
-		@echo "Push_swap and checker succesfully done."
 
 $(NAME): $(PUSH_SWAP_OBJS) $(LIBFT)
 		@gcc $(FLAGS) -o $@ $^
+		@echo "Push_swap succesfully done."
 
 $(CHECKER): $(CHECKER_OBJS) $(LIBFT)
 		@gcc $(FLAGS) -o $@ $^
+		@echo "Checker succesfully done."
 
 $(LIBFT):
 		@$(MAKE) -C libft
 
 clean:
-		@rm -rf $(OBJS_DIR)
+		@rm -f $(PUSH_SWAP_OBJS) $(CHECKER_OBJS)
 		@$(MAKE) -C libft clean
 
 fclean: clean

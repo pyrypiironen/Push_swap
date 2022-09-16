@@ -31,18 +31,7 @@ int		main(int argc, char **argv)
 	read_input(argv, data, a);
 	set_sequence(data, &a);
 	solver(data, &a, &b);
-
-
-	//print_stacks(data, &a, &b);
-
-
-
-	
-
-
-
-	// * * * * * Testing ends * * * * *
-
+	free_all(data);
 	return (0);
 }
 

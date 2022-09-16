@@ -46,3 +46,46 @@ void	smallest_to_head(t_data *d, t_stack **a, t_stack **b)
 		while ((*a)->smallest != 1)
 			rotate_a(d, a, b);
 }
+
+void	set_sequence(t_data *d, t_stack **a)
+{
+	t_stack	*tmp;
+	
+	d->total = 1;
+	if (d->head_a == NULL)
+		return;
+	*a = d->head_a;
+	while (1)
+	{
+		tmp = d->head_a;
+		while (1)
+		{
+			if (tmp->value < (*a)->value)
+				(*a)->sequence += 1;
+			if (tmp->next == NULL)
+				break ;
+			tmp = tmp->next;
+		}
+		if ((*a)->next == NULL)
+			break ;
+		(*a) = (*a)->next;
+		d->total++;
+	}
+	target_sequence(d, a);
+	set_segment(d, a);
+}
+void	target_sequence(t_data *d, t_stack **a)
+{
+	*a = d->head_a;
+	while (1)
+	{
+		if ((*a)->sequence == 1)
+			(*a)->smallest = 1;
+		(*a)->sequence += d->total / 2;
+		if ((*a)->sequence > d->total)
+			(*a)->sequence -= d->total;
+		if ((*a)->next == NULL)
+			break ;
+		*a = (*a)->next;
+	}
+}

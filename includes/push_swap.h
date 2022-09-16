@@ -93,14 +93,15 @@ void	execute_command(t_data *d, t_stack **a, t_stack **b, char *line);
 
 // Helpers
 void	ps_error(t_data *d);
+void	free_all(t_data *d);
 int		check_order(t_data *d, t_stack **a);
+
 
 // Libft functions modified to this project
 int		ps_atoi(const char *str, t_data *d);
 
 // Visualizer
 void	visualizer(t_data *d, t_stack **a, t_stack **b, int operation);
-//void	print_stacks_32(t_data *d, t_stack **a, t_stack **b, int operation);
 void	print_stacks_segments(t_data *d, t_stack **a, t_stack **b);
 void	print_value_segments_32(t_data *d, t_stack **x);
 void	print_value_segments_16(t_data *d, t_stack **x);

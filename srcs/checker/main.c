@@ -33,6 +33,8 @@ int		main(int argc, char **argv)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
+	free_all(data);
+	return (0);
 
 
 }

@@ -12,49 +12,6 @@
 
 # include "../../includes/push_swap.h"
 
-void	set_sequence(t_data *d, t_stack **a)
-{
-	t_stack	*tmp;
-	
-	d->total = 1;
-	if (d->head_a == NULL)
-		return;
-	*a = d->head_a;
-	while (1)
-	{
-		tmp = d->head_a;
-		while (1)
-		{
-			if (tmp->value < (*a)->value)
-				(*a)->sequence += 1;
-			if (tmp->next == NULL)
-				break ;
-			tmp = tmp->next;
-		}
-		if ((*a)->next == NULL)
-			break ;
-		(*a) = (*a)->next;
-		d->total++;
-	}
-	target_sequence(d, a);
-	set_segment(d, a);
-}
-void	target_sequence(t_data *d, t_stack **a)
-{
-	*a = d->head_a;
-	while (1)
-	{
-		if ((*a)->sequence == 1)
-			(*a)->smallest = 1;
-		(*a)->sequence += d->total / 2;
-		if ((*a)->sequence > d->total)
-			(*a)->sequence -= d->total;
-		if ((*a)->next == NULL)
-			break ;
-		*a = (*a)->next;
-	}
-}
-
 void	set_segment(t_data *d, t_stack **a)
 {
 	*a = d->head_a;
@@ -101,6 +58,21 @@ void	ps_error(t_data	*d)
 	}
 	free(d);
 	exit(1);
+}
+
+void	free_all(t_data *d)
+{
+	while (d->head_a)
+	{
+		free(d->head_a);
+		d->head_a = d->head_a->next;
+	}
+	while (d->head_b)
+	{
+		free(d->head_b);
+		d->head_b = d->head_b->next;
+	}
+	free(d);
 }
 
 int		check_order(t_data *d, t_stack **a)
