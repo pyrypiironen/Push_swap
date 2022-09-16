@@ -16,7 +16,6 @@ FLAGS = -Wall -Wextra -Werror #-fsanitize=address -g
 LIBFT = libft/libft.a
 OBJS_DIR = objs/
 
-
 SWAP_FILES =	solver.c \
 				push_segments.c \
 				push_back.c \
@@ -52,8 +51,6 @@ CHECKER_SRCS = $(CHECKA_SRCS) $(OPERATIONS_SRCS) $(COMMON_SRCS) $(VISUALIZER_SRC
 
 PUSH_SWAP_OBJS = $(PUSH_SWAP_SRCS:.c=.o)
 CHECKER_OBJS = $(CHECKER_SRCS:.c=.o)
-
-
 
 
 all: $(NAME) $(CHECKER)

@@ -30,5 +30,5 @@ void	visualizer(t_data *d, t_stack **a, t_stack **b, int operation)
 	*a = d->head_a;
 	*b = d->head_b;
 	if (1 == 1) // fix to flag
-		sleep(1);
+		usleep(250000);
 }
