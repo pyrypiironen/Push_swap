@@ -37,6 +37,7 @@ void	format_structs(t_data *d, t_stack **a)
 	d->head_a = *a;
 	d->head_b = NULL;
 	d->second = 0;
+	d->count = 0;
 	(*a)->value = 2147483648;
 	(*a)->next = NULL;
 	(*a)->sequence = 1;
@@ -60,7 +61,7 @@ void	ps_error(t_data	*d)
 	exit(1);
 }
 
-void	free_all(t_data *d)
+void	free_all(t_data *d) //add tmp
 {
 	while (d->head_a)
 	{

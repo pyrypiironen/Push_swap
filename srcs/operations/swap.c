@@ -24,6 +24,7 @@ void	swap_a(t_data *d, t_stack **a, t_stack **b)
 	d->head_a = (*a)->next;	// second element is new head
 	(*a)->next = tmp;		// original first element point to third element
 	*a = d->head_a;
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("sa\n");
 	else if (d->visual == 1)
@@ -42,6 +43,7 @@ void	swap_b(t_data *d, t_stack **a, t_stack **b)
 	d->head_b = (*b)->next;
 	(*b)->next = tmp;
 	*b = d->head_b;
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("sb\n");
 	else if (d->visual == 1)
@@ -72,6 +74,7 @@ void	swap_both(t_data *d, t_stack **a, t_stack **b)
 		*a = d->head_a;
 		*b = d->head_b;
 	}
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("ss\n");
 	else if (d->visual == 1)

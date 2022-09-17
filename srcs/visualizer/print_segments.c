@@ -39,54 +39,54 @@ void	print_stacks_segments(t_data *d, t_stack **a, t_stack **b)
 void	print_value_segments_32(t_data *d, t_stack **x)
 {
 	if ((*x)->segment >= 14 && (*x)->segment <= 17)
-		ft_printf("{blue2}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{blue2}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if (((*x)->segment >= 11 && (*x)->segment <= 12) || \
 		((*x)->segment >= 18 && (*x)->segment <= 19))
-		ft_printf("{yellow}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{yellow}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if (((*x)->segment >= 9 && (*x)->segment <= 10) || \
 		((*x)->segment >= 20 && (*x)->segment <= 21))
-		ft_printf("{green}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{green}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if (((*x)->segment >= 7 && (*x)->segment <= 8) || \
 		((*x)->segment >= 22 && (*x)->segment <= 23))
-		ft_printf("{red}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{red}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if (((*x)->segment >= 5 && (*x)->segment <= 6) || \
 		((*x)->segment >= 24 && (*x)->segment <= 25))
-		ft_printf("{purple}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{purple}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if (((*x)->segment >= 3 && (*x)->segment <= 4) || \
 		((*x)->segment >= 26 && (*x)->segment <= 27))
-		ft_printf("{blue}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{blue}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else
-		ft_printf("%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("%25d (%2d)     ", (*x)->value, (*x)->segment);
 	(*x) = (*x)->next;
 }
 
 void	print_value_segments_16(t_data *d, t_stack **x)
 {
 	if ((*x)->segment >= 7 && (*x)->segment <= 8)
-		ft_printf("{blue2}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{blue2}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 6 || (*x)->segment == 9)
-		ft_printf("{yellow}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{yellow}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 5 || (*x)->segment == 10)
-		ft_printf("{green}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{green}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 4 || (*x)->segment == 11)
-		ft_printf("{red}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{red}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 3 || (*x)->segment == 12)
-		ft_printf("{purple}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{purple}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 2 || (*x)->segment == 13)
-		ft_printf("{blue}%20d (%2d)          ", (*x)->value, (*x)->segment);
-	else ft_printf("%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{blue}%25d (%2d)     ", (*x)->value, (*x)->segment);
+	else ft_printf("%25d (%2d)     ", (*x)->value, (*x)->segment);
 	(*x) = (*x)->next;
 }
 
 void	print_value_segments_3(t_data *d, t_stack **x)
 {
 	if ((*x)->segment == 0)
-		ft_printf("{green}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{green}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 1)
-		ft_printf("{yellow}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{yellow}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else if ((*x)->segment == 2)
-		ft_printf("{red}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{red}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	else
-		ft_printf("{blue}%20d (%2d)          ", (*x)->value, (*x)->segment);
+		ft_printf("{blue}%25d (%2d)     ", (*x)->value, (*x)->segment);
 	(*x) = (*x)->next;
 }

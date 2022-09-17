@@ -34,6 +34,8 @@ typedef struct s_data
 	int			way_big;
 	int			way_small;
 	int			second;
+	// Visualizer
+	int			count;
 }				t_data;
 
 typedef struct	s_stack
@@ -102,10 +104,23 @@ int		ps_atoi(const char *str, t_data *d);
 
 // Visualizer
 void	visualizer(t_data *d, t_stack **a, t_stack **b, int operation);
+void	print_last_move(int operation);
+
+void	print_stacks(t_data *d, t_stack **a, t_stack **b);
+void	print_value_32(t_data *d, t_stack **x);
+void	print_value_16(t_data *d, t_stack **x);
+void	print_value_3(t_data *d, t_stack **x);
+
 void	print_stacks_segments(t_data *d, t_stack **a, t_stack **b);
 void	print_value_segments_32(t_data *d, t_stack **x);
 void	print_value_segments_16(t_data *d, t_stack **x);
 void	print_value_segments_3(t_data *d, t_stack **x);
+
+void	print_sequence(t_data *d, t_stack **a, t_stack **b);
+void	print_sequence_32(t_data *d, t_stack **x);
+void	print_sequence_16(t_data *d, t_stack **x);
+void	print_sequence_3(t_data *d, t_stack **x);
+
 void	print_sequence_segments(t_data *d, t_stack **a, t_stack **b);
 void	print_sequence_segments_32(t_data *d, t_stack **x);
 void	print_sequence_segments_16(t_data *d, t_stack **x);

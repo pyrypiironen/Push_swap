@@ -23,6 +23,7 @@ void	rotate_a(t_data *d, t_stack **a, t_stack **b)
 	d->head_a = (*a)->next;		// original second element is new head
 	(*a)->next = NULL;			// original first element is new end
 	*a = d->head_a;
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("ra\n");
 	else if (d->visual == 1)
@@ -41,6 +42,7 @@ void	rotate_b(t_data *d, t_stack **a, t_stack **b)
 	d->head_b = (*b)->next;
 	(*b)->next = NULL;
 	*b = d->head_b;
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("rb\n");
 	else if (d->visual == 1)
@@ -71,6 +73,7 @@ void	rotate_both(t_data *d, t_stack **a, t_stack **b)
 		(*b)->next = NULL;
 		*b = d->head_b;
 	}
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("rr\n");
 	else if (d->visual == 1)

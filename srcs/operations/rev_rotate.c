@@ -25,6 +25,7 @@ void	rev_rotate_a(t_data *d, t_stack **a, t_stack **b)
 		*a = (*a)->next;		// *a is new last element after loop
 	(*a)->next = NULL;
 	*a = d->head_a;
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("rra\n");
 	else if (d->visual == 1)
@@ -44,6 +45,7 @@ void	rev_rotate_b(t_data *d, t_stack **a, t_stack **b)
 		*b = (*b)->next;
 	(*b)->next = NULL;
 	*b = d->head_b;
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("rrb\n");
 	else if (d->visual == 1)
@@ -78,6 +80,7 @@ void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
 		*a = d->head_a;
 		*b = d->head_b;
 	}
+	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("rrr\n");
 	else if (d->visual == 1)
