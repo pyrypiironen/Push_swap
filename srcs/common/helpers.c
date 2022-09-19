@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	set_segment(t_data *d, t_stack **a)
 {
@@ -46,37 +46,45 @@ void	format_structs(t_data *d, t_stack **a)
 
 void	ps_error(t_data	*d)
 {
+	t_stack	*tmp;
+
 	ft_printf("Error\n");
 	while (d->head_a)
 	{
+		tmp = d->head_a;
 		free(d->head_a);
-		d->head_a = d->head_a->next;
+		d->head_a = tmp->next;
 	}
 	while (d->head_b)
 	{
+		tmp = d->head_a;
 		free(d->head_b);
-		d->head_b = d->head_b->next;
+		d->head_b = tmp->next;
 	}
 	free(d);
 	exit(1);
 }
 
-void	free_all(t_data *d) //add tmp
+void	free_all(t_data *d)
 {
+	t_stack	*tmp;
+
 	while (d->head_a)
 	{
+		tmp = d->head_a;
 		free(d->head_a);
-		d->head_a = d->head_a->next;
+		d->head_a = tmp->next;
 	}
 	while (d->head_b)
 	{
+		tmp = d->head_b;
 		free(d->head_b);
-		d->head_b = d->head_b->next;
+		d->head_b = tmp->next;
 	}
 	free(d);
 }
 
-int		check_order(t_data *d, t_stack **a)
+int	check_order(t_data *d, t_stack **a)
 {
 	*a = d->head_a;
 	if (d->head_b != NULL)

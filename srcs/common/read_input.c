@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	read_input(char **argv, t_data *d, t_stack *a)
 {
@@ -43,7 +43,7 @@ void	read_argu(char *arg, t_data *d, t_stack **a)
 	// While there is a digit (0 to 9) and value of str can suit as an int,
 	// the digit is added to str. It is still possible that str get value over
 	// int. Ps_atoi protect against false inputs.
-	while (arg[i] && ft_isdigit(arg[i]) == 1 && i < 11 )
+	while (arg[i] && ft_isdigit(arg[i]) == 1 && i < 11)
 	{
 		str[i] = arg[i];
 		i++;
@@ -55,7 +55,8 @@ void	read_argu(char *arg, t_data *d, t_stack **a)
 		return ;
 	// Else if there is space and the next character is digit
 	// or '-' function call itself again with new starting point.
-	else if (arg[i] == ' ' && (ft_isdigit(arg[i + 1]) == 1 || arg[i + 1] == '-'))
+	else if (arg[i] == ' ' && (ft_isdigit(arg[i + 1]) == 1 \
+			|| arg[i + 1] == '-'))
 		i++;
 	else
 		ps_error(d);

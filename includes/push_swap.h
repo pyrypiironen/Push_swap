@@ -73,6 +73,7 @@ void	rotate_both(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_a(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_b(t_data *d, t_stack **a, t_stack **b);
 void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b);
+void	rrr_printer(t_data *d, t_stack **a, t_stack **b);
 
 // The algorithm
 void	solver(t_data *d, t_stack **a, t_stack **b);

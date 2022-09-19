@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	push_back(t_data *d, t_stack **a, t_stack **b)
 {
@@ -80,7 +80,7 @@ int	distance_to_big(t_data *d, t_stack **b)
 {
 	int	dist;
 	int	i;
-	
+
 	dist = 0;
 	i = 0;
 	if (*b == NULL)
@@ -96,14 +96,13 @@ int	distance_to_big(t_data *d, t_stack **b)
 		i++;
 	}
 	if (dist > i)
-	{
 		// d->way_b indicates shortest way to biggest number:
 		// rotate (0) or reverse rotate(1).
 		d->way_big = 1;
-		dist = i;
-	}
 	else
 		d->way_big = 0;
+	if (dist > i)
+		dist = i;
 	*b = d->head_b;
 	return (dist);
 }
@@ -128,12 +127,11 @@ int	distance_to_small(t_data *d, t_stack **b)
 		i++;
 	}
 	if (dist > i)
-	{
 		d->way_small = 1;
-		dist = i;
-	}
 	else
 		d->way_small = 0;
+	if (dist > i)
+		dist = i;
 	*b = d->head_b;
 	return (dist);
 }

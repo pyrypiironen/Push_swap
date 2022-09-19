@@ -10,22 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	push_b(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->head_a == NULL)
-		return;
+		return ;
 	*a = d->head_a;
-	d->head_a = (*a)->next;	// second element of a is new head of a
+	d->head_a = (*a)->next;// second element of a is new head of a
 	if (d->head_b != NULL)
 	{
 		*b = d->head_b;
-		(*a)->next = *b;	// first element of a point to first element of b
+		(*a)->next = *b;// first element of a point to first element of b
 	}
 	else
-		(*a)->next = NULL;	// if stack b is empty next is null
-	d->head_b = *a;			// original first element of a is new head of b
+		(*a)->next = NULL;// if stack b is empty next is null
+	d->head_b = *a;// original first element of a is new head of b
 	*a = d->head_a;
 	*b = d->head_b;
 	d->count++;
@@ -38,7 +38,7 @@ void	push_b(t_data *d, t_stack **a, t_stack **b)
 void	push_a(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->head_b == NULL)
-		return;
+		return ;
 	*b = d->head_b;
 	d->head_b = (*b)->next;
 	if (d->head_a != NULL)

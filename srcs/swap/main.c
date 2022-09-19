@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_data	*data;
 	t_stack	*a;
@@ -34,4 +34,3 @@ int		main(int argc, char **argv)
 	free_all(data);
 	return (0);
 }
-

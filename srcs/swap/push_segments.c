@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	push_segments(t_data *d, t_stack **a, t_stack **b)
 {
@@ -33,19 +33,18 @@ void	push_segments(t_data *d, t_stack **a, t_stack **b)
 					if ((*a)->segment < d->min || (*a)->segment > d->max)
 						rotate_both(d, a, b);
 					else
-						rotate_b(d, a, b);	
+						rotate_b(d, a, b);
 				}
 			}
 			else
 				rotate_a(d, a, b);
-			
 		}
 		d->min -= 2;
 		d->max += 2;
 	}
 }
 
-int		still_left(t_data *d)
+int	still_left(t_data *d)
 {
 	t_stack	*tmp;
 

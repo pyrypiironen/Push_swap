@@ -10,18 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	rotate_a(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->head_a == NULL || d->head_a->next == NULL)
-		return;
+		return ;
 	while ((*a)->next)
 		*a = (*a)->next;
-	(*a)->next = d->head_a;		// last element point to first element
+	(*a)->next = d->head_a;// last element point to first element
 	*a = d->head_a;
-	d->head_a = (*a)->next;		// original second element is new head
-	(*a)->next = NULL;			// original first element is new end
+	d->head_a = (*a)->next;// original second element is new head
+	(*a)->next = NULL;// original first element is new end
 	*a = d->head_a;
 	d->count++;
 	if (d->pw == 1 && d->visual == 0)
@@ -34,7 +34,7 @@ void	rotate_a(t_data *d, t_stack **a, t_stack **b)
 void	rotate_b(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->head_b == NULL || d->head_b->next == NULL)
-		return;
+		return ;
 	while ((*b)->next)
 		(*b) = (*b)->next;
 	(*b)->next = d->head_b;

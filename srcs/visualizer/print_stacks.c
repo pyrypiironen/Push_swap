@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	print_stacks(t_data *d, t_stack **a, t_stack **b)
 {
@@ -73,7 +73,7 @@ void	print_value_16(t_data *d, t_stack **x)
 	else if ((*x)->segment == 3 || (*x)->segment == 12)
 		ft_printf("{purple}%30d     ", (int)(*x)->value);
 	else if ((*x)->segment == 2 || (*x)->segment == 13)
-		ft_printf("{blue}%30d     ",(int)(*x)->value);
+		ft_printf("{blue}%30d     ", (int)(*x)->value);
 	else
 		ft_printf("%30d     ", (int)(*x)->value);
 	(*x) = (*x)->next;

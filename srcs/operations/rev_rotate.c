@@ -10,19 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../includes/push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	rev_rotate_a(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->head_a == NULL || d->head_a->next == NULL)
-		return;
+		return ;
 	while ((*a)->next)
-		*a = (*a)->next;		// *a is last element after loop
-	(*a)->next = d->head_a;		// last element point to first element
-	d->head_a = *a;				// last element is new head
-	*a = (*a)->next;			// *a is head
+		*a = (*a)->next;// *a is last element after loop
+	(*a)->next = d->head_a;// last element point to first element
+	d->head_a = *a;// last element is new head
+	*a = (*a)->next;// *a is head
 	while ((*a)->next != d->head_a)
-		*a = (*a)->next;		// *a is new last element after loop
+		*a = (*a)->next;// *a is new last element after loop
 	(*a)->next = NULL;
 	*a = d->head_a;
 	d->count++;
@@ -35,7 +35,7 @@ void	rev_rotate_a(t_data *d, t_stack **a, t_stack **b)
 void	rev_rotate_b(t_data *d, t_stack **a, t_stack **b)
 {
 	if (d->head_b == NULL || d->head_b->next == NULL)
-		return;
+		return ;
 	while ((*b)->next)
 		*b = (*b)->next;
 	(*b)->next = d->head_b;
@@ -80,6 +80,11 @@ void	rev_rotate_both(t_data *d, t_stack **a, t_stack **b)
 		*a = d->head_a;
 		*b = d->head_b;
 	}
+	rrr_printer(d, a, b);
+}
+
+void	rrr_printer(t_data *d, t_stack **a, t_stack **b)
+{
 	d->count++;
 	if (d->pw == 1 && d->visual == 0)
 		ft_printf("rrr\n");
