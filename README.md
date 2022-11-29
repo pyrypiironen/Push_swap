@@ -28,22 +28,47 @@ Within your mandatory part you are allowed to the following functions:
 
 | Operations | Description |
 | :---:      | :---        |
-| sa | `swap a` - swap the first 2 elements at the top of stack a. |
-| sb | `swap b` - swap the first 2 elements at the top of stack b. |
+| sa | `swap a` swap the first 2 elements at the top of stack a. (Do nothing if there is only one or no elements.) |
+| sb | `swap b` swap the first 2 elements at the top of stack b. (Do nothing if there is only one or no elements.) |
 | ss | `sa` and `sb` at the same time. |
-| pa | `push a` - take the first element at the top of b and put it at the top of a. Do
-nothing if `b` is empty. |
-| pb | `push b` - take the first element at the top of a and put it at the top of b. |
-| ra | `rotate a` - shift up all elements of stack a by 1. |
-| rb | `rotate b` - shift up all elements of stack b by 1. |
+| pa | `push a` take the first element at the top of `b` and put it at the top of `a`. (Do nothing if `b` is empty.) |
+| pb | `push b` take the first element at the top of `a` and put it at the top of `b`. (Do nothing if `a` is empty.) |
+| ra | `rotate a` shift up all elements of stack a by 1. The first element becomes the last one. |
+| rb | `rotate b` shift up all elements of stack b by 1. The first element becomes the last one. |
 | rr | `ra` and `rb` at the same time. |
-| rra | 
+| rra | `reverse rotate a` shift down all elements of stack a by 1. The last element becomes the first one. |
+| rrb | `reverse rotate b` shift down all elements of stack b by 1. The last element becomes the first one. |
+| rrr | `rra` and `rrb` at the same time. |
+
+### PDF
+Add link to pdf.
  
-## How to use
+## Usage
+Compile the programs using `make`.
+### checker
+- `checker` will get as an argument the `stack a` formatted as a list of integers. The first argument should be at the top of the stack.
+  - If no argument is given `checker` stops and displays nothing.
+- After that `checker` will then wait and read instructions on the standard input, each instruction will be followed by `\n`.
+- Once all the instructions have been read, checker will execute them on the stack received as an argument.
+  - Execute by `CTRL + D`
+- If after executing those instructions, `stack a` is actually sorted and `b` is empty, the output is `OK`.
+  - Otherwise the output is `KO`.
+- In case of eror, the output is simply `Error`.
+- Note that the input must be clean.
+  - Integers
+  - No duplicates
+  - Separated with spaces
+
+**ADD IMAGE HERE**
+
+### push_swap
+something somethin
+
+### push_swap with checker
+something somethinf
  
  
- 
- 
+## Algorhitm
 ## Visualizer
  
  
