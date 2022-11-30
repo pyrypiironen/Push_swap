@@ -4,7 +4,6 @@ Add gif here
 
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
 
-
 You have at your disposal a set of int values, 2 stacks and a set of instructions to manipulate both stacks.
 Your goal is to write two programs in C:
 
@@ -41,11 +40,12 @@ Within your mandatory part you are allowed to the following functions:
 | rrr | `rra` and `rrb` at the same time. |
 
 ### PDF
-Add link to pdf.
+**The full assignment pdf{Add link to pdf.}**
  
 ## Usage
-Compile the programs using `make`.
+Run `make` to compile both programs.
 ### checker
+`./checker  <list of integers>`
 - `checker` will get as an argument the `stack a` formatted as a list of integers. The first argument should be at the top of the stack.
   - If no argument is given `checker` stops and displays nothing.
 - After that `checker` will then wait and read instructions on the standard input, each instruction will be followed by `\n`.
@@ -53,7 +53,7 @@ Compile the programs using `make`.
   - Execute by `CTRL + D`
 - If after executing those instructions, `stack a` is actually sorted and `b` is empty, the output is `OK`.
   - Otherwise the output is `KO`.
-- In case of eror, the output is simply `Error`.
+- In case of error, the output is simply `Error`.
 - Note that the input must be clean.
   - Integers
   - No duplicates
@@ -62,13 +62,43 @@ Compile the programs using `make`.
 **ADD IMAGE HERE**
 
 ### push_swap
-something somethin
-
+`./push_swap <list of integers>`
+- `push_swap` will get as an argument the `stack a` formatted as a list of integers. The first argument should be at the top of the stack.
+- The program displays the smallest list of instructions possible to sort the `stack a`, the smallest number being at the top.
+  - Instructions are separated by a `\n`.
+- Note that the input must be clean or the program displays just `Error`.
+  
+ **ADD IMAGE HERE**
+ 
+ - To get count of instructions `push_swap` needs to sort the stack use command `wc -1` via pipe.
+ 
+ `ARG="<list of integers>"; push_swap $ARG | wc -1`
+ 
+ **ADD IMAGE HERE**
+ 
 ### push_swap with checker
-something somethinf
+`ARG="<list of integers>"; ./push_swap $ARG | ./checker $ARG`
+- Programs can be used together. In this case `push_swap` sort the stack and `checker` read the standart input to displays `OK` or `KO` depending on whether the stack is in right order or not.
+  - In other words `checker` checks if `push_swap` works correctly.
  
+ **ADD IMAGE HERE**
  
-## Algorhitm
+ ## The Algorithm
+
+The algorithm of push_swap was the key part of the project and a great way to challenge myself to optimize it as well as I can. ADD ADD
+
+My basic idea into an algorithm is to push the numbers once to stack b in the order that makes it possible to push them back to stack a straight to right order with the least rotation on stack b while finding the next number to push back. To do that I split the numbers on segments and push them to stack b in the order that I can always find the biggest or the smallest number without going too deep on the stack. The most important thing in terms of efficiency is that the algorithm always has two options of which number it will rotate to the top of stack b and push back to stack a. If the stack b isn’t sorted well for this purpose it causes extra rotation for every step and ruins the efficiency.
+
+### Pre optimization: sequence numbers
+
+Before starting to run the algorithm I give a sequence number to every number (integer). Thanks to this the algorithm can use, for example, sequence numbers 1 to 500 except 500 random integer values. The real trick is that the sequence numbering starts at the middle of numbers (and loop from biggest to smallest) which saves on average over 200 moves with a stack of 500 numbers. That is because the algorithm pushes numbers back to stack a starting with the biggest and the smallest numbers which leaves the smallest number in the middle of the stack a after the last number has pushed back. Now when the smallest sequence  number is the middle of the stack a it means that the smallest number is top of the stack.
+
+**ADD IMAGES TO COMPARE**
+
+In the name of simplicity numbers refer to the sequence numbers in the following text.
+
+##  Segments
+
 ## Visualizer
  
  
