@@ -2,6 +2,15 @@
 
 ![feedback](https://user-images.githubusercontent.com/93189576/204519215-f600805a-758d-4e08-88b8-8f375f4d018e.png)
 
+### Table of Contents
+
+1. [Description](#description)
+2. [Usage](#usage)
+3. [The algorithm](#the-algorithm)
+4. [Vizualizer](#visualizer)
+5. [Rating](#rating)
+
+
 ## Description
 
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
