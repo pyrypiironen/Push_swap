@@ -103,12 +103,14 @@ First, I divide the numbers into either 4, 16 or 32 segments depending on the am
 
 When the numbers are divided into segments, I start to rotate stack a and move the numbers belonging to the middle four segments to stack b. When these have all been moved, I expand the search area by two segments in both directions and repeat this until all the numbers (except three smallest) have been moved to stack b.
 
-For each moved number, I check whether the number belongs to the largest or smallest segment to be moved, in which case the number is left at the top of stack and otherwise moved to the bottom of stack. Thanks to this, the numbers are in the order that I can always find the biggest or the smallest number without going too deep on the stack b when moving numbers back to stack a.
+For each moved number, I check whether the number belongs to the largest or the smallest segment to be moved, in which case the number is left at the top of the stack and otherwise moved to the bottom of the stack.  At this point I also rotate the stack a on the same move if necessary. After that the numbers are in the order that when moving numbers back to stack a I can always find the biggest or the smallest number from the top or from the bottom of stack b without going too deep on it.
 
 ![segments](https://user-images.githubusercontent.com/93189576/210215151-71b372f1-5b80-41bc-b08f-e58b4ae87843.png)
 
 <details>
-```
+<summary>Click here to see code.</summary>
+	
+```c
 void	push_segments(t_data *d, t_stack **a, t_stack **b)
 {
 	*a = d->head_a;
@@ -141,7 +143,7 @@ void	push_segments(t_data *d, t_stack **a, t_stack **b)
 	}
 }
 ```
-<summary>Click here to see code.</summary>
+</details>
 
 
 ## Visualizer
