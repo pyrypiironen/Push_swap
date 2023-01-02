@@ -105,7 +105,7 @@ When the numbers are divided into segments, I start to rotate stack a and move t
 
 For each moved number, I check whether the number belongs to the largest or the smallest segment to be moved, in which case the number is left at the top of the stack and otherwise moved to the bottom of the stack.  At this point I also rotate the stack a on the same move if necessary. After that the numbers are in the order that when moving numbers back to stack a I can always find the biggest or the smallest number from the top or from the bottom of stack b without going too deep on it.
 
-![segments](https://user-images.githubusercontent.com/93189576/210215151-71b372f1-5b80-41bc-b08f-e58b4ae87843.png)
+![segments_](https://user-images.githubusercontent.com/93189576/210222076-fa110d35-eafc-42c1-a86a-b864c42ccccc.png)
 
 <details>
 <summary>Click here to see code.</summary>
@@ -144,6 +144,32 @@ void	push_segments(t_data *d, t_stack **a, t_stack **b)
 }
 ```
 </details>
+	
+### Push back
+	
+I start by finding out whether the distance to the smallest or the largest number is longer from the top of the stack b. After that, I find the number that has a shorter distance, rotate it top of the stack b and push to the stack a. If the number is the smallest possible, I rotate it to the bottom of stack a, so that the numbers are immediately placed in ascending order in stack a. After pushed every number back to stack a, the smallest number would remain in the middle of the stack if the real values of the numbers would be used, but since I use sequence numbers as described above, I can avoid this.
+
+<details>
+<summary>Click here to see code.</summary>
+	
+```c
+void	push_back(t_data *d, t_stack **a, t_stack **b)
+{
+	d->max = d->total;
+	d->min = 4;
+	while (d->min <= d->max)
+	{
+		if (distance_to_big(d, b) <= distance_to_small(d, b))
+			seek_big(d, a, b);
+		else
+			seek_small(d, a, b);
+	}
+}
+```
+</details>
+	
+I also use an optimization that checks whether when searching for the smallest number, the second smallest number is found, or when searching for the largest number, the second largest number is found. If this is the case, I move this number to stack a before the number to be searched and when the number to be searched has also been found and moved, I change the places of the numbers in stack a by rotating once.
+
 
 
 ## Visualizer
