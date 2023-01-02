@@ -1,5 +1,8 @@
 # Push_swap
-Add gif here
+
+![Screen-Recording-2023-01-02-at-1](https://user-images.githubusercontent.com/93189576/210230993-e4c7f72a-2912-4ef9-8e69-cd16125e187d.gif)
+![feedback](https://user-images.githubusercontent.com/93189576/204519215-f600805a-758d-4e08-88b8-8f375f4d018e.png)
+
 ## Description
 
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
