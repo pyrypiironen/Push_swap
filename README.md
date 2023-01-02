@@ -40,8 +40,8 @@ Within your mandatory part you are allowed to the following functions:
 | rrr | `rra` and `rrb` at the same time. |
 
 ### PDF
-**The full assignment pdf{Add link to pdf.}**
- 
+The full assignment [PDF](https://github.com/pyrypiironen/Push_swap/blob/master/push_swap.pdf).
+
 ## Usage
 Run `make` to compile both programs.
 ### checker
@@ -85,7 +85,7 @@ Run `make` to compile both programs.
  
  ## The Algorithm
 
-The algorithm of push_swap was the key part of the project and a great way to challenge myself to optimize it as well as I can. ADD ADD
+The algorithm of push_swap was the key part of the project and a great way to challenge myself to optimize it as well as I can.
 
 My basic idea into an algorithm is to push the numbers once to stack b in the order that makes it possible to push them back to stack a straight to right order with the least rotation on stack b while finding the next number to push back. To do that I split the numbers on segments and push them to stack b in the order that I can always find the biggest or the smallest number without going too deep on the stack. The most important thing in terms of efficiency is that the algorithm always has two options of which number it will rotate to the top of stack b and push back to stack a. If the stack b isn’t sorted well for this purpose it causes extra rotation for every step and ruins the efficiency.
 
@@ -97,7 +97,17 @@ Before starting to run the algorithm I give a sequence number to every number (i
 
 In the name of simplicity numbers refer to the sequence numbers in the following text.
 
-##  Segments
+###  Segments
+
+First, I divide the numbers into either 4, 16 or 32 segments depending on the amount of numbers to make the algorithm as efficient as possible. Sets of less than 40 numbers are divided into 4 segments, sets of 40-350 numbers are divided into 16 segments and larger sets of numbers are divided into 32 segments.
+
+When the numbers are divided into segments, I start to rotate stack a and move the numbers belonging to the middle four segments to stack b. When these have all been moved, I expand the search area by two segments in both directions and repeat this until all the numbers (except three smallest) have been moved to stack b.
+
+For each moved number, I check whether the number belongs to the largest or smallest segment to be moved, in which case the number is left at the top of stack and otherwise moved to the bottom of stack. Thanks to this, the numbers are in the order that I can always find the biggest or the smallest number without going too deep on the stack b when moving numbers back to stack a.
+
+![segments](https://user-images.githubusercontent.com/93189576/210215151-71b372f1-5b80-41bc-b08f-e58b4ae87843.png)
+
+<Code>hoi hoih,</>
 
 ## Visualizer
  
