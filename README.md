@@ -106,7 +106,11 @@ My basic idea into an algorithm is to push the numbers once to stack b in the or
 
 Before starting to run the algorithm I give a sequence number to every number (integer). Thanks to this the algorithm can use, for example, sequence numbers 1 to 500 except 500 random integer values. The real trick is that the sequence numbering starts at the middle of numbers (and loop from biggest to smallest) which saves on average over 200 moves with a stack of 500 numbers. That is because the algorithm pushes numbers back to stack a starting with the biggest and the smallest numbers which leaves the smallest number in the middle of the stack a after the last number has pushed back. Now when the smallest sequence  number is the middle of the stack a it means that the smallest number is top of the stack.
 
-**ADD IMAGES TO COMPARE**
+![Screenshot 2023-01-02 at 16 46 42](https://user-images.githubusercontent.com/93189576/210246784-d83a0062-deec-47dc-bde6-575039b2fd13.png)
+![Screenshot 2023-01-02 at 16 45 54](https://user-images.githubusercontent.com/93189576/210246790-de78fb8c-81cf-436c-a77c-8858e7ed03db.png)
+
+*First image shows the solved set of integers as sequence numbers and second one as real values.*
+
 
 In the name of simplicity numbers refer to the sequence numbers in the following text.
 
@@ -182,6 +186,8 @@ void	push_back(t_data *d, t_stack **a, t_stack **b)
 </details>
 	
 I also use an optimization that checks whether when searching for the smallest number, the second smallest number is found, or when searching for the largest number, the second largest number is found. If this is the case, I move this number to stack a before the number to be searched and when the number to be searched has also been found and moved, I change the places of the numbers in stack a by rotating once.
+
+Last thing to do  is check where the smallest integer is and rotate it to the top of the stack a. Thanks to using sequence numbers so far, the smallest integer is pretty close to the top already.
 
 ## Visualizer
  
