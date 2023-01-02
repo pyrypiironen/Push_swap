@@ -1,11 +1,12 @@
 # Push_swap
 
-![Screen-Recording-2023-01-02-at-1](https://user-images.githubusercontent.com/93189576/210230993-e4c7f72a-2912-4ef9-8e69-cd16125e187d.gif)
 ![feedback](https://user-images.githubusercontent.com/93189576/204519215-f600805a-758d-4e08-88b8-8f375f4d018e.png)
 
 ## Description
 
 This project involves sorting data on a stack, with a limited set of instructions, and the smallest number of moves. To make this happen, you will have to manipulate various sorting algorithms and choose the most appropriate solution(s) for optimized data sorting.
+
+![Screen-Recording-2023-01-02-at-1](https://user-images.githubusercontent.com/93189576/210230993-e4c7f72a-2912-4ef9-8e69-cd16125e187d.gif)
 
 You have at your disposal a set of int values, 2 stacks and a set of instructions to manipulate both stacks.
 Your goal is to write two programs in C:
@@ -75,7 +76,7 @@ Run `make` to compile both programs.
  
  - To get count of instructions `push_swap` needs to sort the stack use command `wc -1` via pipe.
  
- `ARG="<list of integers>"; push_swap $ARG | wc -1`
+ `ARG="<list of integers>"; ./push_swap $ARG | wc -1`
  
  **ADD IMAGE HERE**
  
@@ -173,16 +174,31 @@ void	push_back(t_data *d, t_stack **a, t_stack **b)
 	
 I also use an optimization that checks whether when searching for the smallest number, the second smallest number is found, or when searching for the largest number, the second largest number is found. If this is the case, I move this number to stack a before the number to be searched and when the number to be searched has also been found and moved, I change the places of the numbers in stack a by rotating once.
 
-
-
 ## Visualizer
  
- 
-## Keywords
-Sorting algorithms
-Notion of stack and manipulation of elements
- 
+I created a simple visualizer to illustrate how the program works. The Visualizer is coded using C and mainly the ft_printf function which is my own implementation of the library function printf.
+	
+Visualizer works with `-v` flag. Another flags can be used only with the `-v` flag.
+	
+Another flags:
+- `-s` shows segment on parentheses after number.
+- `-seq` shows the sequence number on every number instead of its real value.
+- `-p` paused visualizer for one second after every move.
+	
+<details>
+<summary>Visualizer with segments. Click to open.</summary>
+	<p>
+<img src="https://user-images.githubusercontent.com/93189576/210236654-d6a878b7-3cd6-4379-a668-99250ef42581.png" alt="1">
+	</p>
+</details>
+<details>
+<summary>Visualizer on the same spot with segments and sequence numbers. Click to open.</summary>
+	<p>
+<img src="https://user-images.githubusercontent.com/93189576/210237554-43091843-70da-4a51-857e-f304398a83f3.png" alt="2">
+	</p>
+</details>
 
 ## Rating
-![feedback](https://user-images.githubusercontent.com/93189576/204519215-f600805a-758d-4e08-88b8-8f375f4d018e.png)
+My push_swap is very successful and fast. It can solve a set of 500 random integers about 4450 to 4600 moves when the limit to full points on the scoring system is 5500 and a set of 100 random integers about 550 to 570 moves when the limit of full points on the scoring system is 700. I haven’t seen a faster one, but let me know if you have one!
+	
 ![125](https://user-images.githubusercontent.com/93189576/204518133-d79e2a49-f394-4c71-b76b-0f29c89c7d37.png)
