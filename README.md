@@ -107,7 +107,42 @@ For each moved number, I check whether the number belongs to the largest or smal
 
 ![segments](https://user-images.githubusercontent.com/93189576/210215151-71b372f1-5b80-41bc-b08f-e58b4ae87843.png)
 
-<Code>hoi hoih,</>
+<details>
+```
+void	push_segments(t_data *d, t_stack **a, t_stack **b)
+{
+	*a = d->head_a;
+	d->min = (d->segments + 1) / 2 - 2;
+	d->max = (d->segments + 1) / 2 + 1;
+	while (d->min >= 0 && d->head_a != NULL)
+	{
+		while (still_left(d) == 1)
+		{
+			if ((*a)->segment >= d->min && (*a)->segment <= d->max \
+				&& (*a)->sequence > 3)
+			{
+				push_b(d, a, b);
+				// Left segments min and max top of the stack b, but rotate
+				// another ones to bottom. Also rotate stack a on same move
+				// if necessary.
+				if ((*b)->segment == d->min + 1 || (*b)->segment == d->max - 1)
+				{
+					if ((*a)->segment < d->min || (*a)->segment > d->max)
+						rotate_both(d, a, b);
+					else
+						rotate_b(d, a, b);
+				}
+			}
+			else
+				rotate_a(d, a, b);
+		}
+		d->min -= 2;
+		d->max += 2;
+	}
+}
+```
+<summary>Click here to see code.</summary>
+
 
 ## Visualizer
  
