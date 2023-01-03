@@ -72,7 +72,7 @@ Run `make` to compile both programs.
   - No duplicates
   - Separated with spaces
 
-**ADD IMAGE HERE**
+<img width="257" alt="1" src="https://user-images.githubusercontent.com/93189576/210348678-fd2a4674-5f0c-47a0-814e-0d17a0ab35c6.png">
 
 ### push_swap
 `./push_swap <list of integers>`
@@ -81,20 +81,20 @@ Run `make` to compile both programs.
   - Instructions are separated by a `\n`.
 - Note that the input must be clean or the program displays just `Error`.
   
- **ADD IMAGE HERE**
+<img width="306" alt="2" src="https://user-images.githubusercontent.com/93189576/210348696-faf8f12b-7c72-4526-992f-792281c3d387.png">
  
- - To get count of instructions `push_swap` needs to sort the stack use command `wc -1` via pipe.
+ - To get count of instructions `push_swap` needs to sort the stack use command `wc -l` via pipe.
  
- `ARG="<list of integers>"; ./push_swap $ARG | wc -1`
+ `ARG="<list of integers>"; ./push_swap $ARG | wc -l`
  
- **ADD IMAGE HERE**
- 
+<img width="415" alt="5" src="https://user-images.githubusercontent.com/93189576/210351442-1aa6ac44-68da-44f1-8869-0a201f4341d7.png">
+
 ### push_swap with checker
 `ARG="<list of integers>"; ./push_swap $ARG | ./checker $ARG`
 - Programs can be used together. In this case `push_swap` sort the stack and `checker` read the standart input to displays `OK` or `KO` depending on whether the stack is in right order or not.
   - In other words `checker` checks if `push_swap` works correctly.
  
- **ADD IMAGE HERE**
+<img width="509" alt="4" src="https://user-images.githubusercontent.com/93189576/210348730-6884a598-1a2e-4a7d-96f3-3dd2ea2ebe32.png">
  
  ## The Algorithm
 
